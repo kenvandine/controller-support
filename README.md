@@ -14,6 +14,7 @@ kernel packages until it is ready for the upstream HID tree.
 | `patches/hid-xbox/` | `git format-patch` series on top of Ubuntu tag `Ubuntu-7.3.0-11.12` (26.10). `HID:` patches touch only `drivers/hid/`; `UBUNTU:` patches touch only `debian.master/`. |
 | `tools/lxd-build.sh` | Builds Ubuntu kernel .debs with the series in an Ubuntu 26.10 LXD container. Output goes to `out/<version>/`. |
 | `tools/build-debs.sh` | The build step itself, run inside a prepared kernel tree. Bumps the version to `7.3.0-90<abi>.<upload>+hidxboxN` so it installs next to the stock kernel. |
+| `tools/capture-controller.sh` | Guided capture of a connected controller (descriptor, IDs, evdev caps, raw reports per button) for the next phases. Run with sudo on the test machine. |
 | `tools/dkms/` | Fast loop: builds `hid-xbox` and the matching `hid-microsoft` as DKMS modules for the running kernel. |
 
 ## Build kernel packages
