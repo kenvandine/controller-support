@@ -46,7 +46,7 @@ git am /path/to/controller-support/patches/hid-xbox/*.patch
 | --- | --- | --- |
 | 1 | HID: microsoft: flush pending rumble work on remove | done |
 | 2 | HID: xbox: split Xbox Wireless Controller support out of hid-microsoft | done |
-| 3 | HID: xbox: report View and Xbox as gamepad buttons on classic firmware | built, needs uhid replay test |
+| 3 | HID: xbox: also report View and Xbox as gamepad buttons on classic firmware | v2: keeps KEY_BACK/KEY_HOMEPAGE, needs SDL re-test |
 | U | UBUNTU: [Config] Enable CONFIG_HID_XBOX | done |
 
 Next: tell classic Bluetooth and BLE firmware apart from the report
