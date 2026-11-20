@@ -1,7 +1,7 @@
 From 29f829973dd4a36f2769db8ae29890b81cf1ce91 Mon Sep 17 00:00:00 2001
 From: Ken <kvandine@gmail.com>
 Date: Fri, 20 Nov 2026 03:23:27 +0000
-Subject: [PATCH 2/3] HID: xbox: split Xbox Wireless Controller support out of
+Subject: [PATCH 2/4] HID: xbox: split Xbox Wireless Controller support out of
  hid-microsoft
 
 hid-microsoft binds the Bluetooth HID interface of the Xbox One S

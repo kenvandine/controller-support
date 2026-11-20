@@ -1,7 +1,7 @@
-From d19b37ebc5056e6beff4a7ca5ffbf4056a33760a Mon Sep 17 00:00:00 2001
+From 4219d2f188cd8b7c6c2f91e55e6ed4a5a37bab52 Mon Sep 17 00:00:00 2001
 From: Ken <kvandine@gmail.com>
 Date: Fri, 20 Nov 2026 03:24:14 +0000
-Subject: [PATCH 3/3] UBUNTU: [Config] Enable CONFIG_HID_XBOX
+Subject: [PATCH 4/4] UBUNTU: [Config] Enable CONFIG_HID_XBOX
 
 Xbox Wireless Controller Bluetooth support moved out of hid-microsoft
 into the new hid-xbox driver. Build it as a module on the same
