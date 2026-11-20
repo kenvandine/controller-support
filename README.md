@@ -11,7 +11,7 @@ kernel packages until it is ready for the upstream HID tree.
 
 | Path | What |
 | --- | --- |
-| `patches/hid-xbox/` | `git format-patch` series on top of Ubuntu tag `Ubuntu-7.3.0-11.12` (26.10). `HID:` patches touch only `drivers/hid/`; `UBUNTU:` patches touch only `debian.master/`. |
+| `patches/hid-xbox/` | `git format-patch` series on top of Ubuntu tag `Ubuntu-7.3.0-11.12` (26.10). `HID:` patches touch only `drivers/hid/`, `selftests/hid:` only `tools/testing/selftests/hid/`; `UBUNTU:` patches touch only `debian.master/`. |
 | `tools/lxd-build.sh` | Builds Ubuntu kernel .debs with the series in an Ubuntu 26.10 LXD container. Output goes to `out/<version>/`. |
 | `tools/build-debs.sh` | The build step itself, run inside a prepared kernel tree. Bumps the version to `7.3.0-90<abi>.<upload>+hidxboxN` so it installs next to the stock kernel. |
 | `tools/lxd-source.sh` | Builds the source package for a PPA upload in the same container (diff-only, `-sd`), and signs it on the host with `KEY=<keyid>`. Output goes to `out/source/<version>/`; upload with `dput ppa:<owner>/<ppa> out/source/<version>/linux_<version>_source.changes`. |
@@ -44,10 +44,13 @@ git am /path/to/controller-support/patches/hid-xbox/*.patch
 
 | # | Patch | State |
 | --- | --- | --- |
-| 1 | HID: microsoft: flush pending rumble work on remove | done |
-| 2 | HID: xbox: split Xbox Wireless Controller support out of hid-microsoft | done |
-| 3 | HID: xbox: also report View and Xbox as gamepad buttons on classic firmware | v2: keeps KEY_BACK/KEY_HOMEPAGE, needs SDL re-test |
+| 1 | HID: microsoft: flush pending rumble work on remove | done, tested |
+| 2 | HID: microsoft: report View and Xbox as gamepad buttons on classic Xbox firmware | done; keeps KEY_BACK/KEY_HOMEPAGE and adds BTN_SELECT/BTN_MODE, detected from the descriptor |
+| 3 | selftests/hid: add tests for the Xbox Wireless Controller over Bluetooth | new; replays both captured 1708 descriptors, needs a run on umoja |
+| 4 | HID: xbox: split Xbox Wireless Controller support out of hid-microsoft | optional; can be dropped before upstream without touching 1-3 |
 | U | UBUNTU: [Config] Enable CONFIG_HID_XBOX | done |
 
-Next: tell classic Bluetooth and BLE firmware apart from the report
-descriptor, descriptor fixups, Share/paddle mapping, trigger rumble, battery.
+Scope for the first upstream submission is patches 1-3 (Ken, 2026-11-20).
+Trigger rumble, battery and Elite paddles are deferred. Stick axes
+(Z/RZ), triggers (GAS/BRAKE) and the A/B/X/Y codes stay as they are, so
+existing SDL and Steam mappings keep working.

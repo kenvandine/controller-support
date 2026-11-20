@@ -1,7 +1,7 @@
-From 29f829973dd4a36f2769db8ae29890b81cf1ce91 Mon Sep 17 00:00:00 2001
+From e25270a00b8c03077233a56dae98bf6c610739e8 Mon Sep 17 00:00:00 2001
 From: Ken <kvandine@gmail.com>
-Date: Fri, 20 Nov 2026 03:23:27 +0000
-Subject: [PATCH 2/4] HID: xbox: split Xbox Wireless Controller support out of
+Date: Fri, 20 Nov 2026 16:13:20 +0000
+Subject: [PATCH 4/5] HID: xbox: split Xbox Wireless Controller support out of
  hid-microsoft
 
 hid-microsoft binds the Bluetooth HID interface of the Xbox One S
@@ -19,7 +19,8 @@ not touch the legacy Microsoft peripherals.
 This is a straight move with no change in behaviour:
 
  - the same device IDs, report parsing, connect mask and rumble output
-   report as before;
+   report as before, and the same View/Xbox handling on classic
+   firmware, still keyed on the descriptor layout;
  - CONFIG_HID_XBOX defaults to the value of CONFIG_HID_MICROSOFT, so
    `make olddefconfig` on an existing config keeps the controllers
    supported, built the same way (y or m);
@@ -32,14 +33,20 @@ hid-microsoft to fall back to hid-generic, has to be updated.
 
 HID_MICROSOFT no longer needs INPUT_FF_MEMLESS; HID_XBOX selects it.
 
+Point the Xbox Bluetooth selftests at the new module and enable
+CONFIG_HID_XBOX in the selftest config; the tests themselves are
+unchanged.
+
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01N6AAHtchJS5gBMxR7F1sf8
 ---
- drivers/hid/Kconfig         |  26 ++++-
- drivers/hid/Makefile        |   1 +
- drivers/hid/hid-microsoft.c | 117 -----------------------
- drivers/hid/hid-xbox.c      | 183 ++++++++++++++++++++++++++++++++++++
- 4 files changed, 209 insertions(+), 118 deletions(-)
+ drivers/hid/Kconfig                           |  26 +-
+ drivers/hid/Makefile                          |   1 +
+ drivers/hid/hid-microsoft.c                   | 176 ------------
+ drivers/hid/hid-xbox.c                        | 251 ++++++++++++++++++
+ tools/testing/selftests/hid/config            |   1 +
+ .../hid/tests/test_xbox_bluetooth.py          |   6 +-
+ 6 files changed, 281 insertions(+), 180 deletions(-)
  create mode 100644 drivers/hid/hid-xbox.c
 
 diff --git a/drivers/hid/Kconfig b/drivers/hid/Kconfig
@@ -102,14 +109,15 @@ index 48a863b24..53db435c1 100644
  obj-$(CONFIG_HID_XINMO)		+= hid-xinmo.o
  obj-$(CONFIG_HID_ZEROPLUS)	+= hid-zpff.o
 diff --git a/drivers/hid/hid-microsoft.c b/drivers/hid/hid-microsoft.c
-index 9ebb1a885..6fce5b3d3 100644
+index 146ebbc31..6fce5b3d3 100644
 --- a/drivers/hid/hid-microsoft.c
 +++ b/drivers/hid/hid-microsoft.c
-@@ -26,36 +26,11 @@
+@@ -26,37 +26,11 @@
  #define MS_NOGET		BIT(4)
  #define MS_DUPLICATE_USAGES	BIT(5)
  #define MS_SURFACE_DIAL		BIT(6)
 -#define MS_QUIRK_FF		BIT(7)
+-#define MS_XBOX_CONSUMER_BUTTONS	BIT(8)
  
  struct ms_data {
  	unsigned long quirks;
@@ -142,7 +150,55 @@ index 9ebb1a885..6fce5b3d3 100644
  static const __u8 *ms_report_fixup(struct hid_device *hdev, __u8 *rdesc,
  		unsigned int *rsize)
  {
-@@ -278,72 +253,6 @@ static int ms_event(struct hid_device *hdev, struct hid_field *field,
+@@ -220,37 +194,6 @@ static int ms_input_mapped(struct hid_device *hdev, struct hid_input *hi,
+ 	return 0;
+ }
+ 
+-/*
+- * Xbox Wireless Controllers on older (Bluetooth Classic) firmware report
+- * View and Xbox as Consumer AC Back and AC Home, while the gamepad button
+- * block declares Button 11 and 13 for them but never sets those bits.
+- * Newer (BLE) firmware drops the consumer usages and uses the buttons.
+- *
+- * On the classic layout, also drive BTN_SELECT and BTN_MODE from the
+- * consumer usages. KEY_BACK and KEY_HOMEPAGE are still reported, so the set
+- * of advertised codes, and with it the button numbering that existing
+- * userspace mappings rely on, does not change.
+- */
+-static int ms_xbox_consumer_buttons(struct input_dev *input,
+-				    struct hid_usage *usage, __s32 value)
+-{
+-	switch (usage->hid) {
+-	case HID_UP_BUTTON | 11:
+-	case HID_UP_BUTTON | 13:
+-		/* Never set by this firmware; driven from the consumer usages. */
+-		return 1;
+-	case HID_UP_CONSUMER | 0x224:	/* AC Back: View */
+-		input_report_key(input, BTN_SELECT, value);
+-		break;
+-	case HID_UP_CONSUMER | 0x223:	/* AC Home: Xbox */
+-		input_report_key(input, BTN_MODE, value);
+-		break;
+-	}
+-
+-	/* Let hid-input report KEY_BACK/KEY_HOMEPAGE as before. */
+-	return 0;
+-}
+-
+ static int ms_event(struct hid_device *hdev, struct hid_field *field,
+ 		struct hid_usage *usage, __s32 value)
+ {
+@@ -264,9 +207,6 @@ static int ms_event(struct hid_device *hdev, struct hid_field *field,
+ 
+ 	input = field->hidinput->input;
+ 
+-	if (quirks & MS_XBOX_CONSUMER_BUTTONS)
+-		return ms_xbox_consumer_buttons(input, usage, value);
+-
+ 	/* Handling MS keyboards special buttons */
+ 	if (quirks & MS_ERGONOMY && usage->hid == (HID_UP_MSVENDOR | 0xff00)) {
+ 		/* Special keypad keys */
+@@ -313,91 +253,6 @@ static int ms_event(struct hid_device *hdev, struct hid_field *field,
  	return 0;
  }
  
@@ -212,10 +268,29 @@ index 9ebb1a885..6fce5b3d3 100644
 -	return input_ff_create_memless(input_dev, NULL, ms_play_effect);
 -}
 -
+-static bool ms_has_input_usage(struct hid_device *hdev, u32 usage_hid)
+-{
+-	struct hid_report_enum *re = &hdev->report_enum[HID_INPUT_REPORT];
+-	struct hid_report *report;
+-	struct hid_field *field;
+-	unsigned int i, j;
+-
+-	list_for_each_entry(report, &re->report_list, list) {
+-		for (i = 0; i < report->maxfield; i++) {
+-			field = report->field[i];
+-			for (j = 0; j < field->maxusage; j++)
+-				if (field->usage[j].hid == usage_hid)
+-					return true;
+-		}
+-	}
+-
+-	return false;
+-}
+-
  static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
  {
  	unsigned long quirks = id->driver_data;
-@@ -355,8 +264,6 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
+@@ -409,8 +264,6 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
  		return -ENOMEM;
  
  	ms->quirks = quirks;
@@ -224,7 +299,19 @@ index 9ebb1a885..6fce5b3d3 100644
  
  	hid_set_drvdata(hdev, ms);
  
-@@ -384,17 +291,7 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
+@@ -426,11 +279,6 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 		return ret;
+ 	}
+ 
+-	/* Key on the descriptor layout, not on product ID or firmware. */
+-	if ((quirks & MS_QUIRK_FF) &&
+-	    ms_has_input_usage(hdev, HID_UP_CONSUMER | 0x224))
+-		ms->quirks |= MS_XBOX_CONSUMER_BUTTONS;
+-
+ 	ret = hid_hw_start(hdev, HID_CONNECT_DEFAULT | ((quirks & MS_HIDINPUT) ?
+ 				HID_CONNECT_HIDINPUT_FORCE : 0));
+ 	if (ret) {
+@@ -443,17 +291,7 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
  
  static void ms_remove(struct hid_device *hdev)
  {
@@ -242,7 +329,7 @@ index 9ebb1a885..6fce5b3d3 100644
  }
  
  static const struct hid_device_id ms_devices[] = {
-@@ -433,19 +330,6 @@ static const struct hid_device_id ms_devices[] = {
+@@ -492,19 +330,6 @@ static const struct hid_device_id ms_devices[] = {
  		.driver_data = MS_PRESENTER },
  	{ HID_BLUETOOTH_DEVICE(USB_VENDOR_ID_MICROSOFT, 0x091B),
  		.driver_data = MS_SURFACE_DIAL },
@@ -262,7 +349,7 @@ index 9ebb1a885..6fce5b3d3 100644
  	{ }
  };
  MODULE_DEVICE_TABLE(hid, ms_devices);
-@@ -456,7 +340,6 @@ static struct hid_driver ms_driver = {
+@@ -515,7 +340,6 @@ static struct hid_driver ms_driver = {
  	.report_fixup = ms_report_fixup,
  	.input_mapping = ms_input_mapping,
  	.input_mapped = ms_input_mapped,
@@ -272,10 +359,10 @@ index 9ebb1a885..6fce5b3d3 100644
  	.remove = ms_remove,
 diff --git a/drivers/hid/hid-xbox.c b/drivers/hid/hid-xbox.c
 new file mode 100644
-index 000000000..c83ea1ea4
+index 000000000..3d8d1a735
 --- /dev/null
 +++ b/drivers/hid/hid-xbox.c
-@@ -0,0 +1,183 @@
+@@ -0,0 +1,251 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
 + * HID driver for Xbox Wireless Controllers connected over Bluetooth
@@ -320,13 +407,77 @@ index 000000000..c83ea1ea4
 +	u8 loop_count;
 +} __packed;
 +
++/*
++ * Older (Bluetooth Classic) firmware reports View and Xbox as Consumer
++ * AC Back and AC Home, while the gamepad button block declares Button 11
++ * and 13 for them but never sets those bits. Newer (BLE) firmware drops
++ * the consumer usages and uses the buttons. The quirk is keyed on the
++ * descriptor, not the product ID or firmware version, so it follows
++ * whatever layout the controller actually announces.
++ *
++ * On the classic layout, View and Xbox also drive BTN_SELECT and BTN_MODE.
++ * KEY_BACK and KEY_HOMEPAGE keep being reported, so the set of advertised
++ * codes (and with it the button numbering existing userspace mappings rely
++ * on) does not change.
++ */
++#define XBOX_QUIRK_CONSUMER_BUTTONS	BIT(0)
++
 +struct xbox_device {
 +	struct hid_device *hdev;
++	unsigned long quirks;
 +	struct work_struct ff_worker;
 +	u8 strong;
 +	u8 weak;
 +	struct xbox_ff_report *ff_report;
 +};
++
++static bool xbox_has_input_usage(struct hid_device *hdev, u32 usage_hid)
++{
++	struct hid_report_enum *re = &hdev->report_enum[HID_INPUT_REPORT];
++	struct hid_report *report;
++	struct hid_field *field;
++	unsigned int i, j;
++
++	list_for_each_entry(report, &re->report_list, list) {
++		for (i = 0; i < report->maxfield; i++) {
++			field = report->field[i];
++			for (j = 0; j < field->maxusage; j++)
++				if (field->usage[j].hid == usage_hid)
++					return true;
++		}
++	}
++
++	return false;
++}
++
++static int xbox_event(struct hid_device *hdev, struct hid_field *field,
++		      struct hid_usage *usage, __s32 value)
++{
++	struct xbox_device *xdev = hid_get_drvdata(hdev);
++	struct input_dev *input;
++
++	if (!(xdev->quirks & XBOX_QUIRK_CONSUMER_BUTTONS) ||
++	    !(hdev->claimed & HID_CLAIMED_INPUT) || !field->hidinput)
++		return 0;
++
++	input = field->hidinput->input;
++
++	switch (usage->hid) {
++	case HID_UP_BUTTON | 11:
++	case HID_UP_BUTTON | 13:
++		/* Never set by this firmware; driven from the consumer usages. */
++		return 1;
++	case HID_UP_CONSUMER | 0x224:	/* AC Back: View */
++		input_report_key(input, BTN_SELECT, value);
++		break;
++	case HID_UP_CONSUMER | 0x223:	/* AC Home: Xbox */
++		input_report_key(input, BTN_MODE, value);
++		break;
++	}
++
++	/* Let hid-input report KEY_BACK/KEY_HOMEPAGE as before. */
++	return 0;
++}
 +
 +static void xbox_ff_worker(struct work_struct *work)
 +{
@@ -408,6 +559,9 @@ index 000000000..c83ea1ea4
 +		return ret;
 +	}
 +
++	if (xbox_has_input_usage(hdev, HID_UP_CONSUMER | 0x224))
++		xdev->quirks |= XBOX_QUIRK_CONSUMER_BUTTONS;
++
 +	ret = hid_hw_start(hdev, HID_CONNECT_DEFAULT);
 +	if (ret) {
 +		hid_err(hdev, "hw start failed\n");
@@ -451,6 +605,7 @@ index 000000000..c83ea1ea4
 +static struct hid_driver xbox_driver = {
 +	.name = "xbox",
 +	.id_table = xbox_devices,
++	.event = xbox_event,
 +	.input_configured = xbox_input_configured,
 +	.probe = xbox_probe,
 +	.remove = xbox_remove,
@@ -459,6 +614,46 @@ index 000000000..c83ea1ea4
 +
 +MODULE_DESCRIPTION("HID driver for Xbox Wireless Controllers over Bluetooth");
 +MODULE_LICENSE("GPL");
+diff --git a/tools/testing/selftests/hid/config b/tools/testing/selftests/hid/config
+index 97148cbd0..da42d33b7 100644
+--- a/tools/testing/selftests/hid/config
++++ b/tools/testing/selftests/hid/config
+@@ -31,3 +31,4 @@ CONFIG_PLAYSTATION_FF=y
+ CONFIG_HID_SONY=y
+ CONFIG_SONY_FF=y
+ CONFIG_HID_WACOM=y
++CONFIG_HID_XBOX=y
+diff --git a/tools/testing/selftests/hid/tests/test_xbox_bluetooth.py b/tools/testing/selftests/hid/tests/test_xbox_bluetooth.py
+index 891052ebf..1a7ee3830 100644
+--- a/tools/testing/selftests/hid/tests/test_xbox_bluetooth.py
++++ b/tools/testing/selftests/hid/tests/test_xbox_bluetooth.py
+@@ -3,7 +3,7 @@
+ # -*- coding: utf-8 -*-
+ #
+ # Xbox Wireless Controller (model 1708) over Bluetooth, handled by
+-# hid-microsoft. The same controller announces a different report
++# hid-xbox. The same controller announces a different report
+ # descriptor depending on its firmware, and both layouts must give
+ # userspace working View (BTN_SELECT) and Xbox (BTN_MODE) buttons.
+ 
+@@ -16,7 +16,7 @@ import logging
+ 
+ logger = logging.getLogger("hidtools.test.xbox_bluetooth")
+ 
+-MS_MODULE = KernelModule("microsoft", "hid_microsoft")
++XBOX_MODULE = KernelModule("xbox", "hid_xbox")
+ 
+ # Bluetooth Classic firmware (0x0903), PID 0x02fd: View is Consumer AC Back
+ # in report 1, Xbox is Consumer AC Home alone in report 2.
+@@ -129,7 +129,7 @@ def key_events(events):
+ 
+ class BaseTest:
+     class XboxTest(base.BaseTestCase.TestUhid):
+-        kernel_modules = [MS_MODULE]
++        kernel_modules = [XBOX_MODULE]
+ 
+         def press(self, send, *args):
+             uhdev = self.uhdev
 -- 
 2.43.0
 

@@ -1,0 +1,149 @@
+From af79ffefa7b536261956b6e6514a083de0686264 Mon Sep 17 00:00:00 2001
+From: Ken <kvandine@gmail.com>
+Date: Fri, 20 Nov 2026 16:10:49 +0000
+Subject: [PATCH 2/5] HID: microsoft: report View and Xbox as gamepad buttons
+ on classic Xbox firmware
+
+The same Xbox One S controller (model 1708) announces two different
+report descriptors depending on its firmware:
+
+ - Bluetooth Classic firmware (PID 0x02fd, 334-byte descriptor) declares
+   Button 1-15 in the gamepad block but reports View as Consumer AC Back
+   in report 1 and Xbox as Consumer AC Home in a separate report 2. The
+   Button 11 and 13 bits are never set.
+ - BLE firmware (PID 0x0b20, 283-byte descriptor) drops both consumer
+   usages and reports View and Xbox as Button 11 and 13.
+
+So on classic firmware View and Xbox only produce KEY_BACK and
+KEY_HOMEPAGE, while BTN_SELECT and BTN_MODE are advertised but never
+fire. Consumers that follow Documentation/input/gamepad.rst, such as
+SDL's automatic evdev mapping, therefore see dead Back and Guide
+buttons.
+
+Detect the classic layout from the parsed descriptor (an AC Back usage
+in an input report) rather than from the product ID or firmware
+version, and on that layout also drive BTN_SELECT from AC Back and
+BTN_MODE from AC Home, dropping the always-zero Button 11/13 values.
+
+KEY_BACK and KEY_HOMEPAGE are still reported and the set of advertised
+codes is unchanged. Userspace that numbers buttons from the advertised
+codes keeps the same indices: SDL's existing database entry for this
+device (back:b15, guide:b12, guide:b16) keeps working, and BTN_SELECT
+(b10) now works too. The raw reports seen over hidraw are not touched.
+
+Relevant part of the classic descriptor (fw 0x0903):
+
+  05 0c 0a 24 02 15 00 25 01 95 01 75 01 81 02   AC Back, report 1
+  ...
+  05 0c 09 01 85 02 a1 01 05 0c 0a 23 02 ...     AC Home, report 2
+
+Both layouts were captured on the same physical controller before and
+after a firmware update.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01N6AAHtchJS5gBMxR7F1sf8
+---
+ drivers/hid/hid-microsoft.c | 59 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 59 insertions(+)
+
+diff --git a/drivers/hid/hid-microsoft.c b/drivers/hid/hid-microsoft.c
+index 9ebb1a885..146ebbc31 100644
+--- a/drivers/hid/hid-microsoft.c
++++ b/drivers/hid/hid-microsoft.c
+@@ -27,6 +27,7 @@
+ #define MS_DUPLICATE_USAGES	BIT(5)
+ #define MS_SURFACE_DIAL		BIT(6)
+ #define MS_QUIRK_FF		BIT(7)
++#define MS_XBOX_CONSUMER_BUTTONS	BIT(8)
+ 
+ struct ms_data {
+ 	unsigned long quirks;
+@@ -219,6 +220,37 @@ static int ms_input_mapped(struct hid_device *hdev, struct hid_input *hi,
+ 	return 0;
+ }
+ 
++/*
++ * Xbox Wireless Controllers on older (Bluetooth Classic) firmware report
++ * View and Xbox as Consumer AC Back and AC Home, while the gamepad button
++ * block declares Button 11 and 13 for them but never sets those bits.
++ * Newer (BLE) firmware drops the consumer usages and uses the buttons.
++ *
++ * On the classic layout, also drive BTN_SELECT and BTN_MODE from the
++ * consumer usages. KEY_BACK and KEY_HOMEPAGE are still reported, so the set
++ * of advertised codes, and with it the button numbering that existing
++ * userspace mappings rely on, does not change.
++ */
++static int ms_xbox_consumer_buttons(struct input_dev *input,
++				    struct hid_usage *usage, __s32 value)
++{
++	switch (usage->hid) {
++	case HID_UP_BUTTON | 11:
++	case HID_UP_BUTTON | 13:
++		/* Never set by this firmware; driven from the consumer usages. */
++		return 1;
++	case HID_UP_CONSUMER | 0x224:	/* AC Back: View */
++		input_report_key(input, BTN_SELECT, value);
++		break;
++	case HID_UP_CONSUMER | 0x223:	/* AC Home: Xbox */
++		input_report_key(input, BTN_MODE, value);
++		break;
++	}
++
++	/* Let hid-input report KEY_BACK/KEY_HOMEPAGE as before. */
++	return 0;
++}
++
+ static int ms_event(struct hid_device *hdev, struct hid_field *field,
+ 		struct hid_usage *usage, __s32 value)
+ {
+@@ -232,6 +264,9 @@ static int ms_event(struct hid_device *hdev, struct hid_field *field,
+ 
+ 	input = field->hidinput->input;
+ 
++	if (quirks & MS_XBOX_CONSUMER_BUTTONS)
++		return ms_xbox_consumer_buttons(input, usage, value);
++
+ 	/* Handling MS keyboards special buttons */
+ 	if (quirks & MS_ERGONOMY && usage->hid == (HID_UP_MSVENDOR | 0xff00)) {
+ 		/* Special keypad keys */
+@@ -344,6 +379,25 @@ static int ms_input_configured(struct hid_device *hdev, struct hid_input *hidinp
+ 	return input_ff_create_memless(input_dev, NULL, ms_play_effect);
+ }
+ 
++static bool ms_has_input_usage(struct hid_device *hdev, u32 usage_hid)
++{
++	struct hid_report_enum *re = &hdev->report_enum[HID_INPUT_REPORT];
++	struct hid_report *report;
++	struct hid_field *field;
++	unsigned int i, j;
++
++	list_for_each_entry(report, &re->report_list, list) {
++		for (i = 0; i < report->maxfield; i++) {
++			field = report->field[i];
++			for (j = 0; j < field->maxusage; j++)
++				if (field->usage[j].hid == usage_hid)
++					return true;
++		}
++	}
++
++	return false;
++}
++
+ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ {
+ 	unsigned long quirks = id->driver_data;
+@@ -372,6 +426,11 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 		return ret;
+ 	}
+ 
++	/* Key on the descriptor layout, not on product ID or firmware. */
++	if ((quirks & MS_QUIRK_FF) &&
++	    ms_has_input_usage(hdev, HID_UP_CONSUMER | 0x224))
++		ms->quirks |= MS_XBOX_CONSUMER_BUTTONS;
++
+ 	ret = hid_hw_start(hdev, HID_CONNECT_DEFAULT | ((quirks & MS_HIDINPUT) ?
+ 				HID_CONNECT_HIDINPUT_FORCE : 0));
+ 	if (ret) {
+-- 
+2.43.0
+
