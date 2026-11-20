@@ -1,0 +1,30 @@
+From d19b37ebc5056e6beff4a7ca5ffbf4056a33760a Mon Sep 17 00:00:00 2001
+From: Ken <kvandine@gmail.com>
+Date: Fri, 20 Nov 2026 03:24:14 +0000
+Subject: [PATCH 3/3] UBUNTU: [Config] Enable CONFIG_HID_XBOX
+
+Xbox Wireless Controller Bluetooth support moved out of hid-microsoft
+into the new hid-xbox driver. Build it as a module on the same
+architectures as CONFIG_HID_MICROSOFT so controllers keep working.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01N6AAHtchJS5gBMxR7F1sf8
+---
+ debian.master/config/annotations | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/debian.master/config/annotations b/debian.master/config/annotations
+index cc33a8667..101408600 100644
+--- a/debian.master/config/annotations
++++ b/debian.master/config/annotations
+@@ -6362,6 +6362,7 @@ CONFIG_HID_WACOM                                policy<{'amd64': 'm', 'arm64': '
+ CONFIG_HID_WALTOP                               policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 'riscv64': 'm', 's390x': '-'}>
+ CONFIG_HID_WIIMOTE                              policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 'riscv64': 'm', 's390x': '-'}>
+ CONFIG_HID_WINWING                              policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 'riscv64': 'm'}>
++CONFIG_HID_XBOX                                 policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 'riscv64': 'm', 's390x': '-'}>
+ CONFIG_HID_XIAOMI                               policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 'riscv64': 'm'}>
+ CONFIG_HID_XINMO                                policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 'riscv64': 'm', 's390x': '-'}>
+ CONFIG_HID_ZEROPLUS                             policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 'riscv64': 'm', 's390x': '-'}>
+-- 
+2.43.0
+
