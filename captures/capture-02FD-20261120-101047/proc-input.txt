@@ -1,0 +1,10 @@
+N: Name="Xbox Wireless Controller"
+P: Phys=04:68:74:d4:2f:f4
+S: Sysfs=/devices/virtual/misc/uhid/0005:045E:02FD.0003/input/input28
+U: Uniq=c8:3f:26:d7:dd:4b
+H: Handlers=kbd event17 js0 
+B: PROP=0
+B: EV=20001b
+B: KEY=7fff000000000000 0 100040000000 0 0
+B: ABS=30627
+B: MSC=10

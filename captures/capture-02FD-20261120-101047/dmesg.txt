@@ -1,0 +1,13 @@
+[    0.000000] Linux version 7.3.0-9011-generic (root@hidxbox-build) (x86_64-linux-gnu-gcc (Ubuntu 15.3.0-4ubuntu1) 15.3.0, GNU ld (GNU Binutils for Ubuntu) 2.47) #12+hidxbox1 SMP PREEMPT_DYNAMIC Fri Nov 20 04:51:29 UTC 2026 (Ubuntu 7.3.0-9011.12+hidxbox1-generic 7.3.1)
+[    0.377784] acpi-fan PNP0C0B:00: Using Microsoft fan extensions
+[    0.466019] integrity: Loaded X.509 cert 'Microsoft Windows Production PCA 2011: a92902398e16c49778cd90f99e4f9ae17c55af53'
+[    0.466033] integrity: Loaded X.509 cert 'Microsoft Corporation: Windows UEFI CA 2023: aefc5fbbbe055d8f8daa585473499417ab5a5272'
+[    0.466047] integrity: Loaded X.509 cert 'Microsoft Corporation UEFI CA 2011: 13adbf4309bd82709c8cd54f316ed522988a1bd4'
+[    0.466060] integrity: Loaded X.509 cert 'Microsoft UEFI CA 2023: 81aa6b3244c935bce0d6628af39827421e32497d'
+[    1.312093] hid-generic 0018:04F3:4406.0001: input,hidraw0: I2C HID v1.00 Device [ELAN901C:00 04F3:4406] on i2c-ELAN901C:00
+[    1.361662] hid-generic 0018:04F3:3196.0002: input,hidraw1: I2C HID v1.00 Mouse [ELAN0679:00 04F3:3196] on i2c-ELAN0679:00
+[  388.291888] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:02FD.0003/input/input26
+[  388.292231] input: Xbox Wireless Controller Consumer Control as /devices/virtual/misc/uhid/0005:045E:02FD.0003/input/input27
+[  388.292415] hid-generic 0005:045E:02FD.0003: input,hidraw2: BLUETOOTH HID v9.03 Gamepad [Xbox Wireless Controller] on 04:68:74:d4:2f:f4
+[  388.401046] input: Xbox Wireless Controller as /devices/virtual/misc/uhid/0005:045E:02FD.0003/input/input28
+[  388.401438] xbox 0005:045E:02FD.0003: input,hidraw2: BLUETOOTH HID v9.03 Gamepad [Xbox Wireless Controller] on 04:68:74:d4:2f:f4

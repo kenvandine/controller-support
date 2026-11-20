@@ -14,7 +14,10 @@ kernel packages until it is ready for the upstream HID tree.
 | `patches/hid-xbox/` | `git format-patch` series on top of Ubuntu tag `Ubuntu-7.3.0-11.12` (26.10). `HID:` patches touch only `drivers/hid/`; `UBUNTU:` patches touch only `debian.master/`. |
 | `tools/lxd-build.sh` | Builds Ubuntu kernel .debs with the series in an Ubuntu 26.10 LXD container. Output goes to `out/<version>/`. |
 | `tools/build-debs.sh` | The build step itself, run inside a prepared kernel tree. Bumps the version to `7.3.0-90<abi>.<upload>+hidxboxN` so it installs next to the stock kernel. |
-| `tools/capture-controller.sh` | Guided capture of a connected controller (descriptor, IDs, evdev caps, raw reports per button) for the next phases. Run with sudo on the test machine. |
+| `tools/lxd-source.sh` | Builds the source package for a PPA upload in the same container (diff-only, `-sd`), and signs it on the host with `KEY=<keyid>`. Output goes to `out/source/<version>/`; upload with `dput ppa:<owner>/<ppa> out/source/<version>/linux_<version>_source.changes`. |
+| `tools/capture-report.py` | Guided capture of a connected controller: driver, PID, firmware, transport, report descriptor, evdev capabilities and axis ranges, battery, then the raw report bytes and evdev events for every button, stick and trigger. Writes `<PID>-fw<version>-<transport>.{md,bin,rdesc.txt,log}`. Run with `sudo python3 -I tools/capture-report.py --out descriptors` on the test machine. |
+| `descriptors/` | Captured report descriptors and capture reports, one set per controller, firmware and transport, used to justify the descriptor fixups. |
+| `captures/` | Guided capture runs (`capture-report.py` output plus the earlier shell-script run) and a per-controller analysis of the report layout and findings for the next phases. |
 | `tools/dkms/` | Fast loop: builds `hid-xbox` and the matching `hid-microsoft` as DKMS modules for the running kernel. |
 
 ## Build kernel packages

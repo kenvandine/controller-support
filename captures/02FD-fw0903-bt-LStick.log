@@ -1,0 +1,1059 @@
+LStick    0.000 event17 EV_ABS 1 31995
+LStick    0.000 event17 EV_ABS 0 36041
+LStick    0.000 event17 EV_ABS 0 35996
+LStick    0.000 event17 EV_ABS 0 35947
+LStick    0.000 event17 EV_ABS 1 32037
+LStick    0.000 event17 EV_ABS 0 35890
+LStick    0.000 event17 EV_ABS 1 32091
+LStick    0.000 event17 EV_ABS 1 32148
+LStick    0.000 event17 EV_ABS 0 35830
+LStick    0.000 event17 EV_ABS 1 32209
+LStick    0.000 hidraw2 01 a9 8c 5f 7d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.000 hidraw2 04 87
+LStick    0.000 hidraw2 01 69 8c 5f 7d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.000 hidraw2 01 18 8c 5f 7d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.000 hidraw2 01 d8 8b 5f 7d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.000 hidraw2 01 d8 8b a4 7d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.000 hidraw2 01 89 8b a4 7d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.000 hidraw2 01 89 8b fd 7d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.000 hidraw2 01 89 8b 40 7e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.000 hidraw2 01 44 8b 40 7e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.000 hidraw2 01 44 8b 89 7e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.342 hidraw2 01 de 8a 89 7e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.342 event17 EV_ABS 0 35690
+LStick    0.350 hidraw2 01 66 8a 89 7e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.350 event17 EV_ABS 0 35560
+LStick    0.357 hidraw2 01 db 89 89 7e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.358 event17 EV_ABS 0 35425
+LStick    0.372 hidraw2 01 8a 88 2a 7f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.372 event17 EV_ABS 0 35189
+LStick    0.372 event17 EV_ABS 1 32381
+LStick    0.387 hidraw2 01 6e 86 d0 7f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.387 event17 EV_ABS 0 34414
+LStick    0.387 event17 EV_ABS 1 32550
+LStick    0.395 event17 EV_ABS 0 34211
+LStick    0.395 event17 EV_ABS 1 32688
+LStick    0.395 hidraw2 01 d9 84 3a 80 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.402 event17 EV_ABS 0 33371
+LStick    0.402 event17 EV_ABS 1 32841
+LStick    0.402 hidraw2 01 5b 82 e2 80 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.409 event17 EV_ABS 0 32520
+LStick    0.409 event17 EV_ABS 1 32991
+LStick    0.410 hidraw2 01 08 7f 75 81 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.418 event17 EV_ABS 0 31359
+LStick    0.418 event17 EV_ABS 1 33127
+LStick    0.418 hidraw2 01 7f 7a f0 81 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.425 hidraw2 01 c8 75 53 82 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.425 event17 EV_ABS 0 30152
+LStick    0.425 event17 EV_ABS 1 33186
+LStick    0.433 hidraw2 01 17 55 a1 82 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.433 event17 EV_ABS 0 21783
+LStick    0.433 event17 EV_ABS 1 33313
+LStick    0.439 hidraw2 01 00 52 a1 82 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.439 event17 EV_ABS 0 20992
+LStick    0.447 hidraw2 01 7a 36 0f 83 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.447 event17 EV_ABS 0 13946
+LStick    0.447 event17 EV_ABS 1 33372
+LStick    0.463 hidraw2 01 0f 30 54 83 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.463 event17 EV_ABS 0 12303
+LStick    0.463 event17 EV_ABS 1 33434
+LStick    0.469 event17 EV_ABS 0 2499
+LStick    0.469 hidraw2 01 c3 09 54 83 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.477 event17 EV_ABS 0 0
+LStick    0.478 hidraw2 01 00 00 54 83 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.485 event17 EV_ABS 1 33661
+LStick    0.485 hidraw2 01 00 00 61 84 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.492 event17 EV_ABS 1 34172
+LStick    0.492 hidraw2 01 00 00 7c 85 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.499 hidraw2 01 00 00 96 87 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.499 event17 EV_ABS 1 34710
+LStick    0.507 hidraw2 01 00 00 3e 8a 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.507 event17 EV_ABS 1 35390
+LStick    0.515 hidraw2 01 00 00 ff 8c 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.515 event17 EV_ABS 1 36095
+LStick    0.522 hidraw2 01 00 00 77 90 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.522 event17 EV_ABS 1 36983
+LStick    0.530 hidraw2 01 00 00 20 94 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.530 event17 EV_ABS 1 37920
+LStick    0.537 hidraw2 01 00 00 c6 97 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.537 event17 EV_ABS 1 38854
+LStick    0.544 hidraw2 01 00 00 65 9b 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.544 event17 EV_ABS 1 39781
+LStick    0.552 hidraw2 01 00 00 02 9f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.552 event17 EV_ABS 1 40706
+LStick    0.560 hidraw2 01 00 00 35 a3 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.561 event17 EV_ABS 1 41781
+LStick    0.567 event17 EV_ABS 1 42754
+LStick    0.567 hidraw2 01 00 00 02 a7 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.574 event17 EV_ABS 1 43724
+LStick    0.574 hidraw2 01 7b 00 cc aa 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.582 event17 EV_ABS 1 44644
+LStick    0.582 hidraw2 01 7b 00 64 ae 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.590 event17 EV_ABS 0 143
+LStick    0.590 event17 EV_ABS 1 45421
+LStick    0.590 hidraw2 01 1f 01 6d b1 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.598 event17 EV_ABS 0 322
+LStick    0.598 event17 EV_ABS 1 46126
+LStick    0.598 hidraw2 01 f5 01 2e b4 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.604 event17 EV_ABS 0 558
+LStick    0.604 event17 EV_ABS 1 46839
+LStick    0.604 hidraw2 01 1a 03 f7 b6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.613 event17 EV_ABS 0 1079
+LStick    0.613 event17 EV_ABS 1 47714
+LStick    0.613 hidraw2 01 37 04 62 ba 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.620 event17 EV_ABS 0 1214
+LStick    0.620 event17 EV_ABS 1 48527
+LStick    0.620 hidraw2 01 45 05 8f bd 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.627 event17 EV_ABS 0 1412
+LStick    0.627 event17 EV_ABS 1 49226
+LStick    0.627 hidraw2 01 4a 06 4a c0 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.634 hidraw2 01 69 07 c1 c2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.634 event17 EV_ABS 0 1654
+LStick    0.634 event17 EV_ABS 1 49857
+LStick    0.642 event17 EV_ABS 0 2177
+LStick    0.642 event17 EV_ABS 1 50558
+LStick    0.642 hidraw2 01 81 08 7e c5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.650 event17 EV_ABS 0 2338
+LStick    0.650 event17 EV_ABS 1 51323
+LStick    0.650 hidraw2 01 c3 09 7b c8 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.657 event17 EV_ABS 0 2911
+LStick    0.657 event17 EV_ABS 1 52071
+LStick    0.657 hidraw2 01 5f 0b 67 cb 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.673 event17 EV_ABS 0 3841
+LStick    0.673 event17 EV_ABS 1 53442
+LStick    0.673 hidraw2 01 01 0f c2 d0 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.680 event17 EV_ABS 0 4443
+LStick    0.680 event17 EV_ABS 1 54059
+LStick    0.680 hidraw2 01 5b 11 2b d3 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.687 hidraw2 01 cf 13 fb d5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.688 event17 EV_ABS 0 5071
+LStick    0.688 event17 EV_ABS 1 54779
+LStick    0.694 hidraw2 01 b0 16 84 d9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.695 event17 EV_ABS 0 5808
+LStick    0.695 event17 EV_ABS 1 55684
+LStick    0.702 event17 EV_ABS 0 6572
+LStick    0.702 event17 EV_ABS 1 56730
+LStick    0.702 hidraw2 01 ac 19 9a dd 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.710 event17 EV_ABS 0 7621
+LStick    0.710 event17 EV_ABS 1 57763
+LStick    0.710 hidraw2 01 c5 1d a3 e1 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.717 event17 EV_ABS 0 8675
+LStick    0.717 event17 EV_ABS 1 58793
+LStick    0.717 hidraw2 01 e3 21 a9 e5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.724 event17 EV_ABS 0 9593
+LStick    0.724 event17 EV_ABS 1 59783
+LStick    0.724 hidraw2 01 79 25 87 e9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.733 event17 EV_ABS 0 10407
+LStick    0.733 event17 EV_ABS 1 60666
+LStick    0.733 hidraw2 01 a7 28 fa ec 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.740 event17 EV_ABS 0 11385
+LStick    0.740 event17 EV_ABS 1 61462
+LStick    0.740 hidraw2 01 79 2c 16 f0 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.747 event17 EV_ABS 0 12513
+LStick    0.747 event17 EV_ABS 1 62217
+LStick    0.747 hidraw2 01 e1 30 09 f3 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.754 event17 EV_ABS 0 13626
+LStick    0.754 event17 EV_ABS 1 65535
+LStick    0.754 hidraw2 01 3a 35 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.762 event17 EV_ABS 0 14887
+LStick    0.762 hidraw2 01 27 3a ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.770 hidraw2 01 6a 56 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.770 event17 EV_ABS 0 22122
+LStick    0.777 event17 EV_ABS 0 22708
+LStick    0.777 hidraw2 01 b4 58 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.785 event17 EV_ABS 0 23331
+LStick    0.786 hidraw2 01 23 5b ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.799 event17 EV_ABS 0 24861
+LStick    0.799 hidraw2 01 1d 61 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.807 hidraw2 01 65 64 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.807 event17 EV_ABS 0 25701
+LStick    0.814 event17 EV_ABS 0 26700
+LStick    0.815 hidraw2 01 4c 68 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.823 event17 EV_ABS 0 27938
+LStick    0.823 hidraw2 01 22 6d ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.830 event17 EV_ABS 0 36377
+LStick    0.830 hidraw2 01 19 8e ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.837 event17 EV_ABS 0 36540
+LStick    0.837 hidraw2 01 5f 8f ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.845 event17 EV_ABS 0 37229
+LStick    0.845 hidraw2 01 6d 91 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.852 event17 EV_ABS 0 38261
+LStick    0.852 hidraw2 01 75 95 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.868 event17 EV_ABS 0 46096
+LStick    0.868 hidraw2 01 10 b4 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.882 event17 EV_ABS 0 47479
+LStick    0.882 hidraw2 01 77 b9 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.889 event17 EV_ABS 0 48449
+LStick    0.889 hidraw2 01 41 bd ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.898 event17 EV_ABS 0 49471
+LStick    0.898 event17 EV_ABS 1 65401
+LStick    0.898 hidraw2 01 3f c1 f3 fe 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.905 event17 EV_ABS 0 50639
+LStick    0.905 event17 EV_ABS 1 65254
+LStick    0.905 hidraw2 01 cf c5 53 fe 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.912 event17 EV_ABS 0 51712
+LStick    0.912 event17 EV_ABS 1 65033
+LStick    0.912 hidraw2 01 00 ca 2c fd 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.921 event17 EV_ABS 0 52797
+LStick    0.921 event17 EV_ABS 1 64360
+LStick    0.921 hidraw2 01 3d ce 68 fb 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.927 event17 EV_ABS 0 53974
+LStick    0.927 event17 EV_ABS 1 64117
+LStick    0.927 hidraw2 01 d6 d2 82 f9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.972 event17 EV_ABS 0 60945
+LStick    0.972 event17 EV_ABS 1 51390
+LStick    0.972 hidraw2 01 11 ee be c8 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.979 event17 EV_ABS 0 65535
+LStick    0.979 event17 EV_ABS 1 51151
+LStick    0.979 hidraw2 01 ff ff e0 c6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.987 event17 EV_ABS 1 50137
+LStick    0.987 hidraw2 01 ff ff d9 c3 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    0.995 event17 EV_ABS 1 49105
+LStick    0.995 hidraw2 01 ff ff d1 bf 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.002 event17 EV_ABS 1 47885
+LStick    1.002 hidraw2 01 ff ff 0d bb 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.009 event17 EV_ABS 1 41214
+LStick    1.009 hidraw2 01 ff ff fe a0 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.017 event17 EV_ABS 1 41076
+LStick    1.017 hidraw2 01 ff ff eb 9f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.024 event17 EV_ABS 1 40315
+LStick    1.024 hidraw2 01 ff ff 7b 9d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.040 event17 EV_ABS 1 38470
+LStick    1.040 hidraw2 01 ff ff 46 96 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.047 event17 EV_ABS 1 37192
+LStick    1.047 hidraw2 01 ff ff 48 91 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.054 hidraw2 01 ff ff 93 74 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.054 event17 EV_ABS 1 29843
+LStick    1.063 event17 EV_ABS 1 29641
+LStick    1.063 hidraw2 01 ff ff ff 72 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.070 event17 EV_ABS 1 28583
+LStick    1.070 hidraw2 01 ff ff a7 6f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.077 event17 EV_ABS 1 27391
+LStick    1.077 hidraw2 01 ff ff ff 6a 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.084 event17 EV_ABS 1 20443
+LStick    1.084 hidraw2 01 ff ff db 4f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.092 event17 EV_ABS 1 20297
+LStick    1.092 hidraw2 01 ff ff b8 4e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.101 event17 EV_ABS 1 19727
+LStick    1.101 hidraw2 01 ff ff 0f 4d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.107 event17 EV_ABS 1 18945
+LStick    1.107 hidraw2 01 ff ff 01 4a 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.123 event17 EV_ABS 0 65500
+LStick    1.123 event17 EV_ABS 1 17061
+LStick    1.123 hidraw2 01 76 ff a5 42 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.129 event17 EV_ABS 0 65372
+LStick    1.129 event17 EV_ABS 1 16157
+LStick    1.129 hidraw2 01 dd fe 1d 3f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.138 event17 EV_ABS 0 65137
+LStick    1.138 event17 EV_ABS 1 15153
+LStick    1.138 hidraw2 01 86 fd 31 3b 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.144 event17 EV_ABS 0 64300
+LStick    1.144 event17 EV_ABS 1 13991
+LStick    1.144 hidraw2 01 2c fb a7 36 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.152 event17 EV_ABS 0 63541
+LStick    1.152 event17 EV_ABS 1 12824
+LStick    1.152 hidraw2 01 35 f8 18 32 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.160 event17 EV_ABS 0 62599
+LStick    1.160 event17 EV_ABS 1 11639
+LStick    1.160 hidraw2 01 87 f4 77 2d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.168 event17 EV_ABS 0 61545
+LStick    1.168 event17 EV_ABS 1 10334
+LStick    1.168 hidraw2 01 69 f0 5e 28 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.174 event17 EV_ABS 0 60305
+LStick    1.174 event17 EV_ABS 1 9062
+LStick    1.174 hidraw2 01 91 eb 66 23 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.182 event17 EV_ABS 0 52545
+LStick    1.182 event17 EV_ABS 1 2269
+LStick    1.182 hidraw2 01 41 cd dd 08 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.190 event17 EV_ABS 0 52350
+LStick    1.190 event17 EV_ABS 1 2134
+LStick    1.190 hidraw2 01 bb cb d0 07 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.198 event17 EV_ABS 0 51066
+LStick    1.198 event17 EV_ABS 1 0
+LStick    1.198 hidraw2 01 7a c7 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.205 event17 EV_ABS 0 42671
+LStick    1.205 hidraw2 01 af a6 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.212 event17 EV_ABS 0 41782
+LStick    1.212 hidraw2 01 36 a3 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.219 event17 EV_ABS 0 40633
+LStick    1.219 hidraw2 01 b9 9e 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.235 event17 EV_ABS 0 32944
+LStick    1.235 hidraw2 01 b0 80 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.242 event17 EV_ABS 0 32223
+LStick    1.242 hidraw2 01 df 7d 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.250 event17 EV_ABS 0 31467
+LStick    1.250 hidraw2 01 eb 7a 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.257 event17 EV_ABS 0 30437
+LStick    1.257 hidraw2 01 e5 76 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.266 event17 EV_ABS 0 29225
+LStick    1.266 hidraw2 01 29 72 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.280 event17 EV_ABS 0 21399
+LStick    1.280 hidraw2 01 97 53 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.287 hidraw2 01 52 50 c3 06 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.287 event17 EV_ABS 0 20562
+LStick    1.287 event17 EV_ABS 1 1731
+LStick    1.296 event17 EV_ABS 0 19338
+LStick    1.296 hidraw2 01 8a 4b 1d 07 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.303 event17 EV_ABS 0 18030
+LStick    1.303 event17 EV_ABS 1 1925
+LStick    1.303 event17 EV_MSC 4 589838
+LStick    1.303 event17 EV_KEY 317 1
+LStick    1.303 hidraw2 01 6e 46 47 08 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.310 event17 EV_ABS 0 10428
+LStick    1.310 event17 EV_ABS 1 2759
+LStick    1.310 hidraw2 01 bc 28 c7 0a 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.317 event17 EV_ABS 0 10246
+LStick    1.317 event17 EV_ABS 1 3813
+LStick    1.317 hidraw2 01 50 27 e5 0e 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.324 event17 EV_ABS 0 9439
+LStick    1.324 event17 EV_ABS 1 4805
+LStick    1.324 hidraw2 01 df 24 c5 12 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.332 event17 EV_ABS 0 8569
+LStick    1.332 event17 EV_ABS 1 11460
+LStick    1.332 hidraw2 01 79 21 c4 2c 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.339 event17 EV_ABS 0 7466
+LStick    1.339 event17 EV_ABS 1 11660
+LStick    1.339 hidraw2 01 2a 1d 55 2e 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.347 event17 EV_ABS 0 6410
+LStick    1.347 event17 EV_ABS 1 12617
+LStick    1.348 hidraw2 01 0a 19 49 31 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.354 event17 EV_ABS 0 5484
+LStick    1.354 event17 EV_ABS 1 13497
+LStick    1.354 hidraw2 01 6c 15 b9 34 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.363 event17 EV_ABS 0 4713
+LStick    1.363 event17 EV_ABS 1 14517
+LStick    1.363 hidraw2 01 69 12 b5 38 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.369 event17 EV_ABS 0 3856
+LStick    1.369 event17 EV_ABS 1 15476
+LStick    1.369 hidraw2 01 10 0f 74 3c 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.385 hidraw2 01 00 00 f6 5d 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.385 event17 EV_ABS 0 0
+LStick    1.385 event17 EV_ABS 1 24054
+LStick    1.392 event17 EV_ABS 1 24185
+LStick    1.393 hidraw2 01 00 00 fd 5e 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.399 event17 EV_ABS 1 25238
+LStick    1.399 hidraw2 01 00 00 96 62 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.407 event17 EV_ABS 1 26214
+LStick    1.407 hidraw2 01 00 00 66 66 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.415 hidraw2 01 00 00 a2 81 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.415 event17 EV_ABS 1 33186
+LStick    1.430 event17 EV_ABS 1 34700
+LStick    1.431 hidraw2 01 00 00 8c 87 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.438 event17 EV_ABS 1 35920
+LStick    1.438 hidraw2 01 00 00 50 8c 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.452 hidraw2 01 00 00 bf ad 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.452 event17 EV_ABS 1 44479
+LStick    1.459 event17 EV_ABS 1 45378
+LStick    1.459 hidraw2 01 5c 00 42 b1 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.467 event17 EV_ABS 0 215
+LStick    1.467 event17 EV_ABS 1 46378
+LStick    1.467 hidraw2 01 af 01 2a b5 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.483 hidraw2 01 b7 05 2a d1 01 80 3f 87 00 00 00 00 00 00 20 00
+LStick    1.483 event17 EV_ABS 0 1463
+LStick    1.483 event17 EV_ABS 1 53546
+LStick    1.489 event17 EV_ABS 0 2275
+LStick    1.489 event17 EV_ABS 1 54100
+LStick    1.489 event17 EV_MSC 4 589838
+LStick    1.489 event17 EV_KEY 317 0
+LStick    1.489 hidraw2 01 e3 08 54 d3 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.497 event17 EV_ABS 0 3355
+LStick    1.497 event17 EV_ABS 1 54777
+LStick    1.497 hidraw2 01 1b 0d f9 d5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.505 event17 EV_ABS 0 4387
+LStick    1.505 event17 EV_ABS 1 55771
+LStick    1.505 hidraw2 01 23 11 db d9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.513 event17 EV_ABS 0 5384
+LStick    1.513 event17 EV_ABS 1 56769
+LStick    1.513 hidraw2 01 08 15 c1 dd 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.520 hidraw2 01 64 18 57 e1 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.520 event17 EV_ABS 0 6244
+LStick    1.520 event17 EV_ABS 1 57687
+LStick    1.534 event17 EV_ABS 0 8062
+LStick    1.534 event17 EV_ABS 1 59121
+LStick    1.534 hidraw2 01 7e 1f f1 e6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.542 event17 EV_ABS 0 8986
+LStick    1.542 event17 EV_ABS 1 59718
+LStick    1.542 hidraw2 01 1a 23 46 e9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.551 event17 EV_ABS 0 9750
+LStick    1.551 event17 EV_ABS 1 60334
+LStick    1.551 hidraw2 01 16 26 ae eb 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.557 event17 EV_ABS 0 10384
+LStick    1.557 event17 EV_ABS 1 60932
+LStick    1.557 hidraw2 01 90 28 04 ee 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.564 event17 EV_ABS 0 10922
+LStick    1.564 event17 EV_ABS 1 61555
+LStick    1.564 hidraw2 01 aa 2a 73 f0 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.572 event17 EV_ABS 0 11159
+LStick    1.572 event17 EV_ABS 1 62089
+LStick    1.572 hidraw2 01 84 2c 89 f2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.580 event17 EV_ABS 0 11807
+LStick    1.580 event17 EV_ABS 1 62305
+LStick    1.580 hidraw2 01 1f 2e 39 f4 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.587 hidraw2 01 aa 2f bd f5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.588 event17 EV_ABS 0 12004
+LStick    1.588 event17 EV_ABS 1 62909
+LStick    1.594 event17 EV_ABS 0 12650
+LStick    1.594 event17 EV_ABS 1 63082
+LStick    1.594 hidraw2 01 6a 31 18 f7 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.602 event17 EV_ABS 0 13315
+LStick    1.602 event17 EV_ABS 1 63335
+LStick    1.602 hidraw2 01 03 34 64 f8 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.610 event17 EV_ABS 0 14007
+LStick    1.610 event17 EV_ABS 1 63937
+LStick    1.610 hidraw2 01 b7 36 c1 f9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.617 event17 EV_ABS 0 14661
+LStick    1.617 event17 EV_ABS 1 65535
+LStick    1.617 hidraw2 01 45 39 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.632 event17 EV_ABS 0 16343
+LStick    1.632 hidraw2 01 d7 3f ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.639 event17 EV_ABS 0 17355
+LStick    1.639 hidraw2 01 cb 43 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.647 event17 EV_ABS 0 18381
+LStick    1.647 hidraw2 01 cd 47 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.655 hidraw2 01 f3 62 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.655 event17 EV_ABS 0 25331
+LStick    1.662 event17 EV_ABS 0 25363
+LStick    1.662 hidraw2 01 74 63 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.670 event17 EV_ABS 0 25574
+LStick    1.670 hidraw2 01 ba 64 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.677 event17 EV_ABS 0 26428
+LStick    1.677 hidraw2 01 3c 67 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.684 event17 EV_ABS 0 27485
+LStick    1.684 hidraw2 01 5d 6b ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.693 event17 EV_ABS 0 34958
+LStick    1.693 hidraw2 01 8e 88 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.700 event17 EV_ABS 0 35474
+LStick    1.700 hidraw2 01 92 8a ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.707 event17 EV_ABS 0 36444
+LStick    1.707 hidraw2 01 5c 8e ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.714 event17 EV_ABS 0 37758
+LStick    1.714 hidraw2 01 7e 93 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.722 hidraw2 01 07 b5 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.722 event17 EV_ABS 0 46343
+LStick    1.729 event17 EV_ABS 0 47163
+LStick    1.729 hidraw2 01 3b b8 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.737 event17 EV_ABS 0 48300
+LStick    1.737 event17 EV_ABS 1 65356
+LStick    1.737 hidraw2 01 ac bc 99 fe 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.744 event17 EV_ABS 0 55414
+LStick    1.744 event17 EV_ABS 1 65174
+LStick    1.744 hidraw2 01 76 d8 e1 fd 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.752 event17 EV_ABS 0 55473
+LStick    1.752 event17 EV_ABS 1 64439
+LStick    1.752 hidraw2 01 65 d9 b7 fb 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.759 event17 EV_ABS 0 56321
+LStick    1.759 event17 EV_ABS 1 63723
+LStick    1.759 hidraw2 01 01 dc eb f8 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.767 event17 EV_ABS 0 57219
+LStick    1.767 event17 EV_ABS 1 62700
+LStick    1.767 hidraw2 01 83 df ec f4 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.774 event17 EV_ABS 0 58122
+LStick    1.774 event17 EV_ABS 1 61490
+LStick    1.774 hidraw2 01 0a e3 32 f0 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.782 event17 EV_ABS 0 59005
+LStick    1.782 event17 EV_ABS 1 60389
+LStick    1.782 hidraw2 01 7d e6 e5 eb 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.790 event17 EV_ABS 0 59958
+LStick    1.790 event17 EV_ABS 1 59319
+LStick    1.790 hidraw2 01 36 ea b7 e7 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.797 event17 EV_ABS 0 60985
+LStick    1.797 event17 EV_ABS 1 58056
+LStick    1.797 hidraw2 01 39 ee c8 e2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.805 event17 EV_ABS 0 61888
+LStick    1.805 event17 EV_ABS 1 50793
+LStick    1.805 hidraw2 01 c0 f1 69 c6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.812 event17 EV_ABS 0 65535
+LStick    1.812 event17 EV_ABS 1 50629
+LStick    1.812 hidraw2 01 ff ff 21 c5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.835 event17 EV_ABS 1 48264
+LStick    1.835 hidraw2 01 ff ff 88 bc 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.849 event17 EV_ABS 1 46126
+LStick    1.849 hidraw2 01 ff ff 2e b4 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.865 hidraw2 01 ff ff 33 ab 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.865 event17 EV_ABS 1 43827
+LStick    1.872 event17 EV_ABS 1 42642
+LStick    1.872 hidraw2 01 ff ff 92 a6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.879 event17 EV_ABS 1 41486
+LStick    1.879 hidraw2 01 ff ff 0e a2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.887 event17 EV_ABS 1 40221
+LStick    1.887 hidraw2 01 ff ff 1d 9d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.894 event17 EV_ABS 1 39029
+LStick    1.894 hidraw2 01 ff ff 75 98 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.902 event17 EV_ABS 1 31962
+LStick    1.902 hidraw2 01 ff ff da 7c 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.909 event17 EV_ABS 1 31765
+LStick    1.909 hidraw2 01 ff ff 51 7b 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.917 event17 EV_ABS 1 31045
+LStick    1.917 hidraw2 01 ff ff 45 79 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.924 event17 EV_ABS 1 30101
+LStick    1.924 hidraw2 01 ff ff 95 75 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.932 event17 EV_ABS 1 29077
+LStick    1.932 hidraw2 01 ff ff 95 71 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.947 event17 EV_ABS 1 26818
+LStick    1.947 hidraw2 01 ff ff c2 68 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.955 event17 EV_ABS 1 25585
+LStick    1.955 hidraw2 01 ff ff f1 63 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.962 event17 EV_ABS 1 24373
+LStick    1.962 hidraw2 01 ff ff 35 5f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.969 event17 EV_ABS 1 23259
+LStick    1.969 hidraw2 01 ff ff db 5a 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.977 event17 EV_ABS 1 22232
+LStick    1.977 hidraw2 01 ff ff d8 56 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.985 event17 EV_ABS 1 21152
+LStick    1.985 hidraw2 01 ff ff a0 52 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.992 event17 EV_ABS 1 20025
+LStick    1.992 hidraw2 01 ff ff 39 4e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    1.999 event17 EV_ABS 1 18899
+LStick    1.999 hidraw2 01 ff ff d3 49 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.007 event17 EV_ABS 0 65488
+LStick    2.007 event17 EV_ABS 1 17710
+LStick    2.007 hidraw2 01 45 ff 2e 45 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.015 event17 EV_ABS 0 65425
+LStick    2.015 event17 EV_ABS 1 16485
+LStick    2.015 hidraw2 01 d6 fe 65 40 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.029 event17 EV_ABS 0 63909
+LStick    2.029 event17 EV_ABS 1 9067
+LStick    2.029 hidraw2 01 a5 f9 6b 23 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.037 event17 EV_ABS 0 62889
+LStick    2.037 event17 EV_ABS 1 8483
+LStick    2.037 hidraw2 01 a9 f5 23 21 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.044 event17 EV_ABS 0 61658
+LStick    2.044 event17 EV_ABS 1 7678
+LStick    2.044 hidraw2 01 da f0 fe 1d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.052 event17 EV_ABS 0 55044
+LStick    2.052 event17 EV_ABS 1 6775
+LStick    2.052 hidraw2 01 04 d7 77 1a 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.059 hidraw2 01 0f d5 cf 16 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.059 event17 EV_ABS 0 54793
+LStick    2.059 event17 EV_ABS 1 5839
+LStick    2.067 event17 EV_ABS 0 53858
+LStick    2.067 event17 EV_ABS 1 4953
+LStick    2.067 hidraw2 01 62 d2 59 13 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.074 event17 EV_ABS 0 52898
+LStick    2.074 event17 EV_ABS 1 4154
+LStick    2.074 hidraw2 01 a2 ce 3a 10 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.082 event17 EV_ABS 0 52036
+LStick    2.082 event17 EV_ABS 1 3479
+LStick    2.082 hidraw2 01 44 cb 97 0d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.089 event17 EV_ABS 0 51224
+LStick    2.089 event17 EV_ABS 1 2927
+LStick    2.089 hidraw2 01 18 c8 6f 0b 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.098 event17 EV_ABS 0 50431
+LStick    2.098 event17 EV_ABS 1 2676
+LStick    2.098 hidraw2 01 ff c4 79 09 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.104 event17 EV_ABS 0 49631
+LStick    2.104 event17 EV_ABS 1 0
+LStick    2.104 hidraw2 01 df c1 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.112 event17 EV_ABS 0 48732
+LStick    2.112 hidraw2 01 5c be 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.119 event17 EV_ABS 0 47587
+LStick    2.119 hidraw2 01 e3 b9 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.127 event17 EV_ABS 0 46362
+LStick    2.127 hidraw2 01 1a b5 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.134 event17 EV_ABS 0 38259
+LStick    2.134 hidraw2 01 73 95 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.142 event17 EV_ABS 0 38089
+LStick    2.142 hidraw2 01 20 94 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.149 event17 EV_ABS 0 36902
+LStick    2.149 hidraw2 01 26 90 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.157 event17 EV_ABS 0 29589
+LStick    2.157 hidraw2 01 95 73 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.164 event17 EV_ABS 0 28916
+LStick    2.164 hidraw2 01 f4 70 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.172 event17 EV_ABS 0 22369
+LStick    2.172 hidraw2 01 61 57 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.179 event17 EV_ABS 0 21825
+LStick    2.179 event17 EV_ABS 1 1105
+LStick    2.179 hidraw2 01 41 55 51 04 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.187 event17 EV_ABS 0 20909
+LStick    2.187 event17 EV_ABS 1 1254
+LStick    2.187 hidraw2 01 ad 51 7b 05 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.195 event17 EV_ABS 0 19669
+LStick    2.195 event17 EV_ABS 1 1845
+LStick    2.195 hidraw2 01 d5 4c 35 07 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.202 event17 EV_ABS 0 18381
+LStick    2.202 event17 EV_ABS 1 2379
+LStick    2.202 hidraw2 01 cd 47 4b 09 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.210 event17 EV_ABS 0 17253
+LStick    2.210 event17 EV_ABS 1 2942
+LStick    2.210 hidraw2 01 65 43 7e 0b 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.217 event17 EV_ABS 0 16017
+LStick    2.217 event17 EV_ABS 1 3673
+LStick    2.217 hidraw2 01 91 3e 59 0e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.225 event17 EV_ABS 0 9348
+LStick    2.225 event17 EV_ABS 1 4522
+LStick    2.225 hidraw2 01 84 24 aa 11 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.232 hidraw2 01 ea 23 1a 15 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.232 event17 EV_ABS 0 9309
+LStick    2.232 event17 EV_ABS 1 5402
+LStick    2.255 event17 EV_ABS 0 7601
+LStick    2.255 event17 EV_ABS 1 8705
+LStick    2.255 hidraw2 01 b1 1d 01 22 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.262 event17 EV_ABS 0 6716
+LStick    2.262 event17 EV_ABS 1 9860
+LStick    2.262 hidraw2 01 3c 1a 84 26 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.277 event17 EV_ABS 0 5037
+LStick    2.277 event17 EV_ABS 1 18593
+LStick    2.277 hidraw2 01 ad 13 a1 48 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.285 event17 EV_ABS 0 4342
+LStick    2.285 event17 EV_ABS 1 18727
+LStick    2.285 hidraw2 01 f6 10 ad 49 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.292 event17 EV_ABS 0 3540
+LStick    2.292 event17 EV_ABS 1 19531
+LStick    2.292 hidraw2 01 d4 0d 4b 4c 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.300 hidraw2 01 00 00 fe 4f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.300 event17 EV_ABS 0 0
+LStick    2.300 event17 EV_ABS 1 20478
+LStick    2.307 event17 EV_ABS 1 21523
+LStick    2.307 hidraw2 01 00 00 13 54 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.314 event17 EV_ABS 1 28381
+LStick    2.314 hidraw2 01 00 00 dd 6e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.322 event17 EV_ABS 1 28444
+LStick    2.322 hidraw2 01 00 00 d9 6f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.332 hidraw2 01 00 00 d8 71 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.332 event17 EV_ABS 1 29144
+LStick    2.337 event17 EV_ABS 1 29953
+LStick    2.337 hidraw2 01 00 00 01 75 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.344 hidraw2 01 00 00 dc 78 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.344 event17 EV_ABS 1 30940
+LStick    2.352 event17 EV_ABS 1 32005
+LStick    2.352 hidraw2 01 00 00 05 7d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.368 hidraw2 01 00 00 31 9e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.368 event17 EV_ABS 1 40497
+LStick    2.375 event17 EV_ABS 1 40661
+LStick    2.375 hidraw2 01 00 00 7a 9f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.382 event17 EV_ABS 1 41452
+LStick    2.382 hidraw2 01 00 00 ec a1 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.389 event17 EV_ABS 1 42445
+LStick    2.389 hidraw2 01 00 00 cd a5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.404 event17 EV_ABS 0 203
+LStick    2.404 event17 EV_ABS 1 44780
+LStick    2.404 hidraw2 01 96 01 ec ae 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.412 event17 EV_ABS 0 794
+LStick    2.412 event17 EV_ABS 1 52017
+LStick    2.412 hidraw2 01 1a 03 31 cb 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.420 event17 EV_ABS 0 1523
+LStick    2.420 event17 EV_ABS 1 52686
+LStick    2.420 hidraw2 01 f3 05 ce cd 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.427 event17 EV_ABS 0 2612
+LStick    2.427 event17 EV_ABS 1 53501
+LStick    2.427 hidraw2 01 34 0a fd d0 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.434 event17 EV_ABS 0 3854
+LStick    2.434 event17 EV_ABS 1 54757
+LStick    2.434 hidraw2 01 0e 0f e5 d5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.442 event17 EV_ABS 0 11231
+LStick    2.442 event17 EV_ABS 1 61537
+LStick    2.442 hidraw2 01 df 2b 61 f0 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.450 event17 EV_ABS 0 11400
+LStick    2.450 event17 EV_ABS 1 61583
+LStick    2.450 hidraw2 01 32 2d 1b f1 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.457 event17 EV_ABS 0 12056
+LStick    2.457 event17 EV_ABS 1 62122
+LStick    2.457 hidraw2 01 18 2f aa f2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.465 event17 EV_ABS 0 12945
+LStick    2.465 event17 EV_ABS 1 62365
+LStick    2.465 hidraw2 01 91 32 91 f4 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.472 event17 EV_ABS 0 13842
+LStick    2.472 event17 EV_ABS 1 63118
+LStick    2.472 hidraw2 01 12 36 8e f6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.479 event17 EV_ABS 0 14985
+LStick    2.479 event17 EV_ABS 1 65535
+LStick    2.479 hidraw2 01 89 3a ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.487 hidraw2 01 31 3f ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.487 event17 EV_ABS 0 16177
+LStick    2.495 hidraw2 01 ee 43 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.495 event17 EV_ABS 0 17390
+LStick    2.502 event17 EV_ABS 0 25146
+LStick    2.502 hidraw2 01 3a 62 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.509 hidraw2 01 cc 62 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.509 event17 EV_ABS 0 25182
+LStick    2.524 hidraw2 01 9e 66 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.524 event17 EV_ABS 0 26270
+LStick    2.532 hidraw2 01 08 6a ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.532 event17 EV_ABS 0 27144
+LStick    2.539 hidraw2 01 cc 6d ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.539 event17 EV_ABS 0 28108
+LStick    2.547 hidraw2 01 fc 71 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.547 event17 EV_ABS 0 29180
+LStick    2.555 hidraw2 01 b0 8b ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.555 event17 EV_ABS 0 35760
+LStick    2.562 hidraw2 01 d1 8c ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.562 event17 EV_ABS 0 35904
+LStick    2.569 hidraw2 01 02 8e ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.569 event17 EV_ABS 0 36129
+LStick    2.577 event17 EV_ABS 0 36722
+LStick    2.577 hidraw2 01 72 8f ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.584 event17 EV_ABS 0 37349
+LStick    2.584 hidraw2 01 e5 91 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.592 event17 EV_ABS 0 38190
+LStick    2.592 hidraw2 01 2e 95 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.600 event17 EV_ABS 0 39110
+LStick    2.600 hidraw2 01 c6 98 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.607 event17 EV_ABS 0 40259
+LStick    2.607 hidraw2 01 43 9d ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.615 event17 EV_ABS 0 41437
+LStick    2.615 hidraw2 01 dd a1 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.622 event17 EV_ABS 0 48194
+LStick    2.622 hidraw2 01 42 bc ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.630 event17 EV_ABS 0 48379
+LStick    2.630 hidraw2 01 b5 bd ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.637 event17 EV_ABS 0 49162
+LStick    2.637 event17 EV_ABS 1 65497
+LStick    2.637 hidraw2 01 0a c0 6a ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.644 event17 EV_ABS 0 49806
+LStick    2.644 hidraw2 01 8e c2 6a ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.652 event17 EV_ABS 0 50470
+LStick    2.652 event17 EV_ABS 1 65318
+LStick    2.652 hidraw2 01 26 c5 74 fe 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.660 event17 EV_ABS 0 51255
+LStick    2.660 event17 EV_ABS 1 65105
+LStick    2.660 hidraw2 01 37 c8 7c fd 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.667 event17 EV_ABS 0 52111
+LStick    2.667 event17 EV_ABS 1 64513
+LStick    2.667 hidraw2 01 8f cb 01 fc 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.674 hidraw2 01 9e ce 1b fa 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.674 event17 EV_ABS 0 52894
+LStick    2.674 event17 EV_ABS 1 64270
+LStick    2.682 event17 EV_ABS 0 53823
+LStick    2.682 event17 EV_ABS 1 63439
+LStick    2.682 hidraw2 01 3f d2 cf f7 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.689 event17 EV_ABS 0 54807
+LStick    2.689 event17 EV_ABS 1 62857
+LStick    2.689 hidraw2 01 17 d6 89 f5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.697 event17 EV_ABS 0 55773
+LStick    2.697 event17 EV_ABS 1 61932
+LStick    2.697 hidraw2 01 dd d9 ec f1 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.705 event17 EV_ABS 0 56787
+LStick    2.705 event17 EV_ABS 1 60953
+LStick    2.705 hidraw2 01 d3 dd 19 ee 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.712 event17 EV_ABS 0 57777
+LStick    2.712 event17 EV_ABS 1 60015
+LStick    2.712 hidraw2 01 b1 e1 6f ea 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.720 hidraw2 01 82 e5 c6 e6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.720 event17 EV_ABS 0 58754
+LStick    2.720 event17 EV_ABS 1 59078
+LStick    2.727 event17 EV_ABS 0 59888
+LStick    2.727 event17 EV_ABS 1 57970
+LStick    2.727 hidraw2 01 f0 e9 72 e2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.735 event17 EV_ABS 0 60955
+LStick    2.735 event17 EV_ABS 1 56775
+LStick    2.735 hidraw2 01 1b ee c7 dd 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.742 event17 EV_ABS 0 65535
+LStick    2.742 event17 EV_ABS 1 49659
+LStick    2.743 hidraw2 01 ff ff fb c1 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.750 event17 EV_ABS 1 49626
+LStick    2.750 hidraw2 01 ff ff 79 c1 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.757 event17 EV_ABS 1 49477
+LStick    2.757 hidraw2 01 ff ff b1 c0 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.765 event17 EV_ABS 1 48835
+LStick    2.765 hidraw2 01 ff ff c3 be 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.772 hidraw2 01 ff ff 8a bc 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.772 event17 EV_ABS 1 48266
+LStick    2.779 hidraw2 01 ff ff 62 b9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.779 event17 EV_ABS 1 47458
+LStick    2.787 hidraw2 01 ff ff 01 b6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.787 event17 EV_ABS 1 46593
+LStick    2.795 hidraw2 01 ff ff 64 b2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.795 event17 EV_ABS 1 45668
+LStick    2.802 hidraw2 01 ff ff 78 ae 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.802 event17 EV_ABS 1 44664
+LStick    2.810 hidraw2 01 ff ff dd a9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.810 event17 EV_ABS 1 43485
+LStick    2.817 hidraw2 01 ff ff 10 a5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.817 event17 EV_ABS 1 42256
+LStick    2.824 hidraw2 01 ff ff cb 89 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.824 event17 EV_ABS 1 35275
+LStick    2.832 event17 EV_ABS 1 35221
+LStick    2.832 hidraw2 01 ff ff f4 88 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.839 hidraw2 01 ff ff 78 86 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.839 event17 EV_ABS 1 34424
+LStick    2.855 event17 EV_ABS 1 32583
+LStick    2.855 hidraw2 01 ff ff 47 7f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.862 event17 EV_ABS 1 31283
+LStick    2.862 hidraw2 01 ff ff 33 7a 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.870 event17 EV_ABS 1 30022
+LStick    2.870 hidraw2 01 ff ff 46 75 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.877 event17 EV_ABS 1 28739
+LStick    2.877 hidraw2 01 ff ff 43 70 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.885 event17 EV_ABS 1 22025
+LStick    2.885 hidraw2 01 ff ff 09 56 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.892 event17 EV_ABS 1 21837
+LStick    2.892 hidraw2 01 ff ff 92 54 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.900 event17 EV_ABS 1 21092
+LStick    2.900 hidraw2 01 ff ff 64 52 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.907 hidraw2 01 ff ff 11 50 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.907 event17 EV_ABS 1 20497
+LStick    2.915 event17 EV_ABS 1 19807
+LStick    2.915 hidraw2 01 ff ff 5f 4d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.922 event17 EV_ABS 1 19057
+LStick    2.922 hidraw2 01 ff ff 71 4a 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.937 event17 EV_ABS 1 17367
+LStick    2.937 hidraw2 01 ff ff d7 43 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.944 event17 EV_ABS 1 16466
+LStick    2.944 hidraw2 01 ff ff 52 40 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.953 event17 EV_ABS 0 65319
+LStick    2.953 event17 EV_ABS 1 15627
+LStick    2.953 hidraw2 01 4f fe 0b 3d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.959 event17 EV_ABS 0 65142
+LStick    2.959 event17 EV_ABS 1 14622
+LStick    2.959 hidraw2 01 c6 fd 1e 39 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.967 event17 EV_ABS 0 64393
+LStick    2.967 event17 EV_ABS 1 13460
+LStick    2.967 hidraw2 01 89 fb 94 34 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.975 event17 EV_ABS 0 63591
+LStick    2.975 event17 EV_ABS 1 12244
+LStick    2.975 hidraw2 01 67 f8 d4 2f 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.982 event17 EV_ABS 0 62584
+LStick    2.982 event17 EV_ABS 1 5253
+LStick    2.982 hidraw2 01 78 f4 85 14 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.989 event17 EV_ABS 0 61279
+LStick    2.989 event17 EV_ABS 1 5198
+LStick    2.989 hidraw2 01 5f ef a9 13 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    2.997 event17 EV_ABS 0 54489
+LStick    2.997 event17 EV_ABS 1 4641
+LStick    2.997 hidraw2 01 d9 d4 21 12 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.005 event17 EV_ABS 0 54245
+LStick    3.005 event17 EV_ABS 1 4113
+LStick    3.005 hidraw2 01 f1 d2 11 10 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.012 event17 EV_ABS 0 53202
+LStick    3.012 event17 EV_ABS 1 3559
+LStick    3.012 hidraw2 01 d2 cf e7 0d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.019 event17 EV_ABS 0 52281
+LStick    3.019 event17 EV_ABS 1 3311
+LStick    3.019 hidraw2 01 39 cc f7 0b 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.027 event17 EV_ABS 0 51326
+LStick    3.027 event17 EV_ABS 1 2595
+LStick    3.027 hidraw2 01 7e c8 23 0a 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.034 event17 EV_ABS 0 50470
+LStick    3.034 event17 EV_ABS 1 2404
+LStick    3.034 hidraw2 01 26 c5 a6 08 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.042 event17 EV_ABS 0 49681
+LStick    3.042 event17 EV_ABS 1 1873
+LStick    3.042 hidraw2 01 11 c2 51 07 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.049 event17 EV_ABS 0 48773
+LStick    3.049 event17 EV_ABS 1 1701
+LStick    3.049 hidraw2 01 85 be fa 05 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.057 event17 EV_ABS 0 47614
+LStick    3.057 event17 EV_ABS 1 1466
+LStick    3.057 hidraw2 01 fe b9 d0 04 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.065 event17 EV_ABS 0 46328
+LStick    3.065 event17 EV_ABS 1 0
+LStick    3.065 hidraw2 01 f8 b4 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.072 event17 EV_ABS 0 37580
+LStick    3.072 hidraw2 01 cc 92 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.080 event17 EV_ABS 0 36795
+LStick    3.080 hidraw2 01 bb 8f 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.088 event17 EV_ABS 0 29466
+LStick    3.088 hidraw2 01 1a 73 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.094 event17 EV_ABS 0 28773
+LStick    3.094 hidraw2 01 65 70 00 00 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.102 event17 EV_ABS 0 21906
+LStick    3.102 event17 EV_ABS 1 1791
+LStick    3.102 hidraw2 01 92 55 ff 06 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.110 event17 EV_ABS 0 20998
+LStick    3.110 event17 EV_ABS 1 1949
+LStick    3.110 hidraw2 01 06 52 3c 08 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.118 hidraw2 01 b7 36 2e 0a 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.118 event17 EV_ABS 0 14007
+LStick    3.118 event17 EV_ABS 1 2606
+LStick    3.124 event17 EV_ABS 0 13877
+LStick    3.124 event17 EV_ABS 1 3418
+LStick    3.124 hidraw2 01 b3 35 5a 0d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.132 event17 EV_ABS 0 12879
+LStick    3.132 event17 EV_ABS 1 4400
+LStick    3.132 hidraw2 01 4f 32 30 11 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.139 event17 EV_ABS 0 11963
+LStick    3.139 event17 EV_ABS 1 5551
+LStick    3.139 hidraw2 01 bb 2e af 15 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.147 hidraw2 01 c1 2a c0 1a 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.147 event17 EV_ABS 0 10945
+LStick    3.147 event17 EV_ABS 1 6848
+LStick    3.170 event17 EV_ABS 0 7536
+LStick    3.170 event17 EV_ABS 1 10539
+LStick    3.170 hidraw2 01 70 1d 2b 29 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.177 event17 EV_ABS 0 6460
+LStick    3.177 event17 EV_ABS 1 18115
+LStick    3.177 hidraw2 01 3c 19 c3 46 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.184 event17 EV_ABS 0 5519
+LStick    3.184 event17 EV_ABS 1 18155
+LStick    3.184 hidraw2 01 8f 15 65 47 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.192 event17 EV_ABS 0 4711
+LStick    3.192 event17 EV_ABS 1 18753
+LStick    3.192 hidraw2 01 67 12 41 49 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.200 event17 EV_ABS 0 3879
+LStick    3.200 event17 EV_ABS 1 19587
+LStick    3.200 hidraw2 01 27 0f 83 4c 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.207 event17 EV_ABS 0 0
+LStick    3.207 event17 EV_ABS 1 20637
+LStick    3.207 hidraw2 01 00 00 9d 50 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.215 event17 EV_ABS 1 21745
+LStick    3.215 hidraw2 01 00 00 f1 54 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.222 event17 EV_ABS 1 29067
+LStick    3.222 hidraw2 01 00 00 8b 71 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.237 event17 EV_ABS 1 29283
+LStick    3.237 hidraw2 01 00 00 3c 73 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.245 event17 EV_ABS 1 30101
+LStick    3.245 hidraw2 01 00 00 95 75 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.253 hidraw2 01 00 00 b7 78 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.253 event17 EV_ABS 1 30903
+LStick    3.267 event17 EV_ABS 1 32440
+LStick    3.267 hidraw2 01 00 00 b8 7e 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.274 event17 EV_ABS 1 33270
+LStick    3.274 hidraw2 01 00 00 f6 81 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.282 hidraw2 01 00 00 82 85 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.282 event17 EV_ABS 1 34178
+LStick    3.289 event17 EV_ABS 1 35168
+LStick    3.289 hidraw2 01 00 00 60 89 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.297 event17 EV_ABS 1 36349
+LStick    3.297 hidraw2 01 00 00 fd 8d 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.305 event17 EV_ABS 1 43303
+LStick    3.305 hidraw2 01 00 00 27 a9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.312 event17 EV_ABS 1 43556
+LStick    3.312 hidraw2 01 00 00 22 ab 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.319 event17 EV_ABS 0 138
+LStick    3.319 event17 EV_ABS 1 44670
+LStick    3.319 hidraw2 01 15 01 7e ae 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.327 event17 EV_ABS 0 355
+LStick    3.327 event17 EV_ABS 1 45662
+LStick    3.327 hidraw2 01 3c 02 5e b2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.335 event17 EV_ABS 0 1006
+LStick    3.335 event17 EV_ABS 1 52643
+LStick    3.335 hidraw2 01 ee 03 a3 cd 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.350 event17 EV_ABS 0 2794
+LStick    3.350 event17 EV_ABS 1 53859
+LStick    3.350 hidraw2 01 ea 0a 63 d2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.357 event17 EV_ABS 0 3957
+LStick    3.357 event17 EV_ABS 1 54710
+LStick    3.357 hidraw2 01 75 0f b6 d5 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.364 event17 EV_ABS 0 5139
+LStick    3.364 event17 EV_ABS 1 55915
+LStick    3.364 hidraw2 01 13 14 6b da 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.372 event17 EV_ABS 0 12897
+LStick    3.372 event17 EV_ABS 1 57088
+LStick    3.372 hidraw2 01 61 32 00 df 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.379 event17 EV_ABS 0 13032
+LStick    3.379 event17 EV_ABS 1 58314
+LStick    3.379 hidraw2 01 6f 33 ca e3 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.387 hidraw2 01 6c 36 73 e8 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.387 event17 EV_ABS 0 13932
+LStick    3.387 event17 EV_ABS 1 59507
+LStick    3.394 event17 EV_ABS 0 14841
+LStick    3.394 event17 EV_ABS 1 60570
+LStick    3.394 hidraw2 01 f9 39 9a ec 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.402 hidraw2 01 d4 3d 64 f0 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.402 event17 EV_ABS 0 15828
+LStick    3.402 event17 EV_ABS 1 61540
+LStick    3.410 event17 EV_ABS 0 17037
+LStick    3.410 event17 EV_ABS 1 65535
+LStick    3.410 hidraw2 01 8d 42 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.417 event17 EV_ABS 0 23881
+LStick    3.417 hidraw2 01 49 5d ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.424 event17 EV_ABS 0 24066
+LStick    3.424 hidraw2 01 bb 5e ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.432 event17 EV_ABS 0 24824
+LStick    3.432 hidraw2 01 f8 60 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.439 event17 EV_ABS 0 25670
+LStick    3.439 hidraw2 01 46 64 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.447 event17 EV_ABS 0 26689
+LStick    3.447 hidraw2 01 41 68 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.454 hidraw2 01 bc 6c ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.454 event17 EV_ABS 0 27836
+LStick    3.477 event17 EV_ABS 0 36493
+LStick    3.477 hidraw2 01 8d 8e ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.484 event17 EV_ABS 0 36700
+LStick    3.484 hidraw2 01 2b 90 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.492 event17 EV_ABS 0 37744
+LStick    3.492 hidraw2 01 70 93 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.499 event17 EV_ABS 0 38772
+LStick    3.499 hidraw2 01 74 97 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.507 event17 EV_ABS 0 45757
+LStick    3.507 hidraw2 01 bd b2 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.515 event17 EV_ABS 0 46000
+LStick    3.515 hidraw2 01 a3 b4 ff ff 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.522 event17 EV_ABS 0 47274
+LStick    3.522 event17 EV_ABS 1 64819
+LStick    3.522 hidraw2 01 aa b8 33 fd 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.530 event17 EV_ABS 0 48395
+LStick    3.530 hidraw2 01 0b bd c3 fc 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.537 event17 EV_ABS 0 55044
+LStick    3.537 event17 EV_ABS 1 64599
+LStick    3.537 hidraw2 01 04 d7 7b fb 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.545 event17 EV_ABS 0 55093
+LStick    3.545 event17 EV_ABS 1 63829
+LStick    3.545 hidraw2 01 c9 d7 55 f9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.552 event17 EV_ABS 0 55837
+LStick    3.552 event17 EV_ABS 1 63193
+LStick    3.552 hidraw2 01 1d da d9 f6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.559 event17 EV_ABS 0 56602
+LStick    3.559 event17 EV_ABS 1 62206
+LStick    3.559 hidraw2 01 1a dd fe f2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.567 event17 EV_ABS 0 57524
+LStick    3.567 event17 EV_ABS 1 61119
+LStick    3.567 hidraw2 01 b4 e0 bf ee 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.575 event17 EV_ABS 0 58453
+LStick    3.575 event17 EV_ABS 1 60074
+LStick    3.575 hidraw2 01 55 e4 aa ea 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.582 event17 EV_ABS 0 59518
+LStick    3.582 event17 EV_ABS 1 58894
+LStick    3.582 hidraw2 01 7e e8 0e e6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.589 event17 EV_ABS 0 60646
+LStick    3.589 event17 EV_ABS 1 51987
+LStick    3.589 hidraw2 01 e6 ec 13 cb 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.597 event17 EV_ABS 0 65535
+LStick    3.597 event17 EV_ABS 1 51457
+LStick    3.597 hidraw2 01 ff ff 01 c9 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.604 event17 EV_ABS 1 50776
+LStick    3.604 hidraw2 01 ff ff 58 c6 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.612 event17 EV_ABS 1 49736
+LStick    3.612 hidraw2 01 ff ff 48 c2 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.620 event17 EV_ABS 1 42855
+LStick    3.620 hidraw2 01 ff ff 67 a7 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.627 event17 EV_ABS 1 42146
+LStick    3.627 hidraw2 01 ff ff a2 a4 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.634 event17 EV_ABS 1 35215
+LStick    3.634 hidraw2 01 ff ff 8f 89 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.642 event17 EV_ABS 1 35155
+LStick    3.642 hidraw2 01 ff ff a0 88 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.650 event17 EV_ABS 0 28818
+LStick    3.650 event17 EV_ABS 1 34961
+LStick    3.650 hidraw2 01 92 70 cf 87 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.658 hidraw2 01 c2 6c 29 87 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.658 event17 EV_ABS 0 27842
+LStick    3.658 event17 EV_ABS 1 34781
+LStick    3.664 event17 EV_ABS 0 44769
+LStick    3.664 event17 EV_ABS 1 34618
+LStick    3.664 hidraw2 01 e1 ae 98 86 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.680 event17 EV_ABS 0 30619
+LStick    3.680 event17 EV_ABS 1 34432
+LStick    3.680 hidraw2 01 9b 77 c7 85 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.687 event17 EV_ABS 0 31739
+LStick    3.687 hidraw2 01 fb 7b c7 85 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.694 hidraw2 01 74 7f 21 85 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.695 event17 EV_ABS 0 32628
+LStick    3.695 event17 EV_ABS 1 34256
+LStick    3.702 event17 EV_ABS 0 33247
+LStick    3.702 hidraw2 01 df 81 21 85 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.717 event17 EV_ABS 0 34128
+LStick    3.717 event17 EV_ABS 1 34105
+LStick    3.717 hidraw2 01 50 85 a2 84 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.725 event17 EV_ABS 0 34288
+LStick    3.725 hidraw2 01 91 86 a2 84 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.732 event17 EV_ABS 0 34492
+LStick    3.732 event17 EV_ABS 1 33973
+LStick    3.732 hidraw2 01 89 87 32 84 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.740 event17 EV_ABS 0 34698
+LStick    3.740 hidraw2 01 58 88 32 84 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.747 event17 EV_ABS 0 34880
+LStick    3.747 hidraw2 01 f6 88 32 84 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.762 event17 EV_ABS 0 35090
+LStick    3.762 hidraw2 01 e5 89 32 84 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.769 event17 EV_ABS 1 33916
+LStick    3.769 hidraw2 01 e5 89 d1 83 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.777 event17 EV_ABS 0 35267
+LStick    3.777 hidraw2 01 74 8a d1 83 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.799 event17 EV_ABS 0 35417
+LStick    3.799 hidraw2 01 ef 8a d1 83 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.845 hidraw2 01 4c 8b d1 83 01 80 3f 87 00 00 00 00 00 00 00 00
+LStick    3.845 event17 EV_ABS 0 35477
+LStick    4.722 event17 EV_ABS 1 33786
+LStick    4.722 hidraw2 01 4c 8b 78 83 01 80 3f 87 00 00 00 00 00 00 00 00

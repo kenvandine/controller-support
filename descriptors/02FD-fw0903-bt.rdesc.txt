@@ -1,0 +1,213 @@
+05 01 09 05 a1 01 85 01 09 01 a1 00 09 30 09 31 15 00 27 ff ff 00 00 95 02 75 10 81 02 c0 09 01 a1 00 09 32 09 35 15 00 27 ff ff 00 00 95 02 75 10 81 02 c0 05 02 09 c5 15 00 26 ff 03 95 01 75 0a 81 02 15 00 25 00 75 06 95 01 81 03 05 02 09 c4 15 00 26 ff 03 95 01 75 0a 81 02 15 00 25 00 75 06 95 01 81 03 05 01 09 39 15 01 25 08 35 00 46 3b 01 66 14 00 75 04 95 01 81 42 75 04 95 01 15 00 25 00 35 00 45 00 65 00 81 03 05 09 19 01 29 0f 15 00 25 01 75 01 95 0f 81 02 15 00 25 00 75 01 95 01 81 03 05 0c 0a 24 02 15 00 25 01 95 01 75 01 81 02 15 00 25 00 75 07 95 01 81 03 05 0c 09 01 85 02 a1 01 05 0c 0a 23 02 15 00 25 01 95 01 75 01 81 02 15 00 25 00 75 07 95 01 81 03 c0 05 0f 09 21 85 03 a1 02 09 97 15 00 25 01 75 04 95 01 91 02 15 00 25 00 75 04 95 01 91 03 09 70 15 00 25 64 75 08 95 04 91 02 09 50 66 01 10 55 0e 15 00 26 ff 00 75 08 95 01 91 02 09 a7 15 00 26 ff 00 75 08 95 01 91 02 65 00 55 00 09 7c 15 00 26 ff 00 75 08 95 01 91 02 c0 85 04 05 06 09 20 15 00 26 ff 00 75 08 95 01 81 02 c0 
+
+  INPUT(1)[INPUT]
+    Field(0)
+      Physical(GenericDesktop.Pointer)
+      Application(GenericDesktop.Gamepad)
+      Usage(2)
+        GenericDesktop.X
+        GenericDesktop.Y
+      Logical Minimum(0)
+      Logical Maximum(65535)
+      Report Size(16)
+      Report Count(2)
+      Report Offset(0)
+      Flags( Variable Absolute )
+    Field(1)
+      Physical(GenericDesktop.Pointer)
+      Application(GenericDesktop.Gamepad)
+      Usage(2)
+        GenericDesktop.Z
+        GenericDesktop.Rz
+      Logical Minimum(0)
+      Logical Maximum(65535)
+      Report Size(16)
+      Report Count(2)
+      Report Offset(32)
+      Flags( Variable Absolute )
+    Field(2)
+      Application(GenericDesktop.Gamepad)
+      Usage(1)
+        SimulationControls.Brake
+      Logical Minimum(0)
+      Logical Maximum(1023)
+      Report Size(10)
+      Report Count(1)
+      Report Offset(64)
+      Flags( Variable Absolute )
+    Field(3)
+      Application(GenericDesktop.Gamepad)
+      Usage(1)
+        SimulationControls.Accelerator
+      Logical Minimum(0)
+      Logical Maximum(1023)
+      Report Size(10)
+      Report Count(1)
+      Report Offset(80)
+      Flags( Variable Absolute )
+    Field(4)
+      Application(GenericDesktop.Gamepad)
+      Usage(1)
+        GenericDesktop.HatSwitch
+      Logical Minimum(1)
+      Logical Maximum(8)
+      Physical Minimum(0)
+      Physical Maximum(315)
+      Unit(English Rotation : Degrees)
+      Report Size(4)
+      Report Count(1)
+      Report Offset(96)
+      Flags( Variable Absolute NullState )
+    Field(5)
+      Application(GenericDesktop.Gamepad)
+      Usage(15)
+        Button.0001
+        Button.0002
+        Button.0003
+        Button.0004
+        Button.0005
+        Button.0006
+        Button.0007
+        Button.0008
+        Button.0009
+        Button.000a
+        Button.000b
+        Button.000c
+        Button.000d
+        Button.000e
+        Button.000f
+      Logical Minimum(0)
+      Logical Maximum(1)
+      Report Size(1)
+      Report Count(15)
+      Report Offset(104)
+      Flags( Variable Absolute )
+    Field(6)
+      Application(GenericDesktop.Gamepad)
+      Usage(1)
+        Consumer.ACBack
+      Logical Minimum(0)
+      Logical Maximum(1)
+      Report Size(1)
+      Report Count(1)
+      Report Offset(120)
+      Flags( Variable Absolute )
+  INPUT(2)[INPUT]
+    Field(0)
+      Application(Consumer.ConsumerControl)
+      Usage(1)
+        Consumer.ACHome
+      Logical Minimum(0)
+      Logical Maximum(1)
+      Report Size(1)
+      Report Count(1)
+      Report Offset(0)
+      Flags( Variable Absolute )
+  INPUT(4)[INPUT]
+    Field(0)
+      Application(GenericDesktop.Gamepad)
+      Usage(1)
+        GenericDeviceControls.BatteryStrength
+      Logical Minimum(0)
+      Logical Maximum(255)
+      Report Size(8)
+      Report Count(1)
+      Report Offset(0)
+      Flags( Variable Absolute )
+  OUTPUT(3)[OUTPUT]
+    Field(0)
+      Logical(PhysicalInputDevice.SetEffectReport)
+      Application(GenericDesktop.Gamepad)
+      Usage(1)
+        PhysicalInputDevice.DCEnableActuators
+      Logical Minimum(0)
+      Logical Maximum(1)
+      Report Size(4)
+      Report Count(1)
+      Report Offset(0)
+      Flags( Variable Absolute )
+    Field(1)
+      Logical(PhysicalInputDevice.SetEffectReport)
+      Application(GenericDesktop.Gamepad)
+      Usage(4)
+        PhysicalInputDevice.Magnitude
+        PhysicalInputDevice.Magnitude
+        PhysicalInputDevice.Magnitude
+        PhysicalInputDevice.Magnitude
+      Logical Minimum(0)
+      Logical Maximum(100)
+      Report Size(8)
+      Report Count(4)
+      Report Offset(8)
+      Flags( Variable Absolute )
+    Field(2)
+      Logical(PhysicalInputDevice.SetEffectReport)
+      Application(GenericDesktop.Gamepad)
+      Usage(1)
+        PhysicalInputDevice.Duration
+      Logical Minimum(0)
+      Logical Maximum(255)
+      Unit Exponent(-2)
+      Unit(SI Linear : Seconds)
+      Report Size(8)
+      Report Count(1)
+      Report Offset(40)
+      Flags( Variable Absolute )
+    Field(3)
+      Logical(PhysicalInputDevice.SetEffectReport)
+      Application(GenericDesktop.Gamepad)
+      Usage(1)
+        PhysicalInputDevice.StartDelay
+      Logical Minimum(0)
+      Logical Maximum(255)
+      Unit Exponent(-2)
+      Unit(SI Linear : Seconds)
+      Report Size(8)
+      Report Count(1)
+      Report Offset(48)
+      Flags( Variable Absolute )
+    Field(4)
+      Logical(PhysicalInputDevice.SetEffectReport)
+      Application(GenericDesktop.Gamepad)
+      Usage(1)
+        PhysicalInputDevice.LoopCount
+      Logical Minimum(0)
+      Logical Maximum(255)
+      Report Size(8)
+      Report Count(1)
+      Report Offset(56)
+      Flags( Variable Absolute )
+
+GenericDesktop.X ---> Absolute.X
+GenericDesktop.Y ---> Absolute.Y
+GenericDesktop.Z ---> Absolute.Z
+GenericDesktop.Rz ---> Absolute.Rz
+SimulationControls.Brake ---> Absolute.Brake
+SimulationControls.Accelerator ---> Absolute.Gas
+GenericDesktop.HatSwitch ---> Absolute.Hat0X
+Button.0001 ---> Key.BtnA
+Button.0002 ---> Key.BtnB
+Button.0003 ---> Key.BtnC
+Button.0004 ---> Key.BtnX
+Button.0005 ---> Key.BtnY
+Button.0006 ---> Key.BtnZ
+Button.0007 ---> Key.BtnTL
+Button.0008 ---> Key.BtnTR
+Button.0009 ---> Key.BtnTL2
+Button.000a ---> Key.BtnTR2
+Button.000b ---> Key.BtnSelect
+Button.000c ---> Key.BtnStart
+Button.000d ---> Key.BtnMode
+Button.000e ---> Key.BtnThumbL
+Button.000f ---> Key.BtnThumbR
+Consumer.ACBack ---> Key.Back
+Consumer.ACHome ---> Key.HomePage
+GenericDeviceControls.BatteryStrength ---> Power.0000
+PhysicalInputDevice.DCEnableActuators ---> Sync.Report
+PhysicalInputDevice.Magnitude ---> Sync.Report
+PhysicalInputDevice.Magnitude ---> Sync.Report
+PhysicalInputDevice.Magnitude ---> Sync.Report
+PhysicalInputDevice.Magnitude ---> Sync.Report
+PhysicalInputDevice.Duration ---> Sync.Report
+PhysicalInputDevice.StartDelay ---> Sync.Report
+PhysicalInputDevice.LoopCount ---> Sync.Report

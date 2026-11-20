@@ -1,0 +1,17 @@
+date: Fri, 20 Nov 2026 10:10:47 -0500
+kernel: 7.3.0-9011-generic
+hid: 0005:045E:02FD.0003
+name: Xbox Wireless Controller
+hid_id: 0005:0000045E:000002FD
+pid: 02FD
+model_guess: Xbox One S 1708 (classic BT firmware)
+driver: xbox
+hidraw: hidraw2
+event: event17
+DRIVER=xbox
+HID_ID=0005:0000045E:000002FD
+HID_NAME=Xbox Wireless Controller
+HID_PHYS=04:68:74:d4:2f:f4
+HID_UNIQ=c8:3f:26:d7:dd:4b
+MODALIAS=hid:b0005g0001v0000045Ep000002FD
+modalias: hid:b0005g0001v0000045Ep000002FD
