@@ -1,0 +1,18 @@
+[package]
+name = "pad-viewer"
+version = "0.1.0"
+edition = "2021"
+description = "Live SDL3 view of a gamepad's buttons, sticks and triggers"
+license = "MIT"
+publish = false
+
+[dependencies]
+sdl3 = "0.22"
+
+[features]
+# Build SDL3 from source and link it statically instead of using the
+# system libSDL3 (libsdl3-dev). Needs cmake and a C compiler.
+vendored = ["sdl3/build-from-source-static"]
+
+[profile.release]
+strip = true
