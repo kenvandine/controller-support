@@ -46,6 +46,13 @@ series=$(dpkg-parsechangelog -l debian.master/changelog -S Distribution)
 	cat debian.master/changelog
 } >debian.master/changelog.new
 mv debian.master/changelog.new debian.master/changelog
+# linux-modules normally Depends on linux-main-modules-{zfs,v4l2loopback},
+# which the archive builds from separate source packages. Those don't exist
+# for this ABI, so drop the dependency or the modules .deb won't install.
+cat >>debian.master/rules.d/hooks.mk <<'HOOK'
+do_linux_main_modules_depends = false
+HOOK
+git add debian.master/rules.d/hooks.mk
 git commit -q -a -m "UBUNTU: local build $newver (do not upstream)"
 
 LANG=C fakeroot debian/rules clean
