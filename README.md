@@ -48,7 +48,8 @@ git am /path/to/controller-support/patches/hid-xbox/*.patch
 | 1 | HID: microsoft: flush pending rumble work on remove | done, tested |
 | 2 | HID: microsoft: report View and Xbox as gamepad buttons on classic Xbox firmware | done; keeps KEY_BACK/KEY_HOMEPAGE and adds BTN_SELECT/BTN_MODE, detected from the descriptor |
 | 3 | selftests/hid: add tests for the Xbox Wireless Controller over Bluetooth | new; replays both captured 1708 descriptors, needs a run on umoja |
-| 4 | HID: xbox: split Xbox Wireless Controller support out of hid-microsoft | optional; can be dropped before upstream without touching 1-3 |
+| 4 | HID: microsoft: rate-limit Xbox controller rumble reports | new; at most one rumble report per 10 ms, latest values win. Needs a hardware run |
+| 5 | HID: xbox: split Xbox Wireless Controller support out of hid-microsoft | optional; can be dropped before upstream without touching 1-4 |
 | U | UBUNTU: [Config] Enable CONFIG_HID_XBOX | done |
 
 Scope for the first upstream submission is patches 1-3 (Ken, 2026-11-20).

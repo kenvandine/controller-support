@@ -1,7 +1,7 @@
 From dab8df7b20f24982cae0f1fdb856943155631d73 Mon Sep 17 00:00:00 2001
 From: Ken <kvandine@gmail.com>
 Date: Fri, 20 Nov 2026 03:21:53 +0000
-Subject: [PATCH 1/5] HID: microsoft: flush pending rumble work on remove
+Subject: [PATCH 1/6] HID: microsoft: flush pending rumble work on remove
 
 ms_play_effect() queues ms->ff_worker on the system workqueue, but
 ms_remove() never waits for it. If a rumble update is still pending when

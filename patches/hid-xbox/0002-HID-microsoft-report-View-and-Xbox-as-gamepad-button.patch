@@ -1,7 +1,7 @@
 From af79ffefa7b536261956b6e6514a083de0686264 Mon Sep 17 00:00:00 2001
 From: Ken <kvandine@gmail.com>
 Date: Fri, 20 Nov 2026 16:10:49 +0000
-Subject: [PATCH 2/5] HID: microsoft: report View and Xbox as gamepad buttons
+Subject: [PATCH 2/6] HID: microsoft: report View and Xbox as gamepad buttons
  on classic Xbox firmware
 
 The same Xbox One S controller (model 1708) announces two different

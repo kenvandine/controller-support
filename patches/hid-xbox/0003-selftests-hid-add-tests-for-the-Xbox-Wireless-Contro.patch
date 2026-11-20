@@ -1,7 +1,7 @@
 From 4cfb2ad70077d9c4a3d50be76cda7891eed8b032 Mon Sep 17 00:00:00 2001
 From: Ken <kvandine@gmail.com>
 Date: Fri, 20 Nov 2026 16:12:37 +0000
-Subject: [PATCH 3/5] selftests/hid: add tests for the Xbox Wireless Controller
+Subject: [PATCH 3/6] selftests/hid: add tests for the Xbox Wireless Controller
  over Bluetooth
 
 The Xbox Wireless Controller model 1708 announces different report

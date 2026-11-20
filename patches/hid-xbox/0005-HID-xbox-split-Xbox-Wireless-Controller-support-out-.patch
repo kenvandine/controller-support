@@ -1,7 +1,7 @@
-From e25270a00b8c03077233a56dae98bf6c610739e8 Mon Sep 17 00:00:00 2001
+From 2783b3539c0218d84035ec18bf33454f5f061beb Mon Sep 17 00:00:00 2001
 From: Ken <kvandine@gmail.com>
 Date: Fri, 20 Nov 2026 16:13:20 +0000
-Subject: [PATCH 4/5] HID: xbox: split Xbox Wireless Controller support out of
+Subject: [PATCH 5/6] HID: xbox: split Xbox Wireless Controller support out of
  hid-microsoft
 
 hid-microsoft binds the Bluetooth HID interface of the Xbox One S
@@ -42,11 +42,11 @@ Claude-Session: https://claude.ai/code/session_01N6AAHtchJS5gBMxR7F1sf8
 ---
  drivers/hid/Kconfig                           |  26 +-
  drivers/hid/Makefile                          |   1 +
- drivers/hid/hid-microsoft.c                   | 176 ------------
- drivers/hid/hid-xbox.c                        | 251 ++++++++++++++++++
+ drivers/hid/hid-microsoft.c                   | 200 -------------
+ drivers/hid/hid-xbox.c                        | 270 ++++++++++++++++++
  tools/testing/selftests/hid/config            |   1 +
  .../hid/tests/test_xbox_bluetooth.py          |   6 +-
- 6 files changed, 281 insertions(+), 180 deletions(-)
+ 6 files changed, 300 insertions(+), 204 deletions(-)
  create mode 100644 drivers/hid/hid-xbox.c
 
 diff --git a/drivers/hid/Kconfig b/drivers/hid/Kconfig
@@ -109,10 +109,10 @@ index 48a863b24..53db435c1 100644
  obj-$(CONFIG_HID_XINMO)		+= hid-xinmo.o
  obj-$(CONFIG_HID_ZEROPLUS)	+= hid-zpff.o
 diff --git a/drivers/hid/hid-microsoft.c b/drivers/hid/hid-microsoft.c
-index 146ebbc31..6fce5b3d3 100644
+index 52e43209e..6fce5b3d3 100644
 --- a/drivers/hid/hid-microsoft.c
 +++ b/drivers/hid/hid-microsoft.c
-@@ -26,37 +26,11 @@
+@@ -26,40 +26,11 @@
  #define MS_NOGET		BIT(4)
  #define MS_DUPLICATE_USAGES	BIT(5)
  #define MS_SURFACE_DIAL		BIT(6)
@@ -122,13 +122,16 @@ index 146ebbc31..6fce5b3d3 100644
  struct ms_data {
  	unsigned long quirks;
 -	struct hid_device *hdev;
--	struct work_struct ff_worker;
+-	struct delayed_work ff_worker;
+-	unsigned long ff_next;	/* jiffies: earliest time for the next report */
 -	__u8 strong;
 -	__u8 weak;
 -	void *output_report_dmabuf;
  };
  
 -#define XB1S_FF_REPORT		3
+-/* Minimum time between two rumble output reports. */
+-#define XB1S_FF_MIN_INTERVAL_MS	10
 -#define ENABLE_WEAK		BIT(0)
 -#define ENABLE_STRONG		BIT(1)
 -
@@ -150,7 +153,7 @@ index 146ebbc31..6fce5b3d3 100644
  static const __u8 *ms_report_fixup(struct hid_device *hdev, __u8 *rdesc,
  		unsigned int *rsize)
  {
-@@ -220,37 +194,6 @@ static int ms_input_mapped(struct hid_device *hdev, struct hid_input *hi,
+@@ -223,37 +194,6 @@ static int ms_input_mapped(struct hid_device *hdev, struct hid_input *hi,
  	return 0;
  }
  
@@ -188,7 +191,7 @@ index 146ebbc31..6fce5b3d3 100644
  static int ms_event(struct hid_device *hdev, struct hid_field *field,
  		struct hid_usage *usage, __s32 value)
  {
-@@ -264,9 +207,6 @@ static int ms_event(struct hid_device *hdev, struct hid_field *field,
+@@ -267,9 +207,6 @@ static int ms_event(struct hid_device *hdev, struct hid_field *field,
  
  	input = field->hidinput->input;
  
@@ -198,16 +201,20 @@ index 146ebbc31..6fce5b3d3 100644
  	/* Handling MS keyboards special buttons */
  	if (quirks & MS_ERGONOMY && usage->hid == (HID_UP_MSVENDOR | 0xff00)) {
  		/* Special keypad keys */
-@@ -313,91 +253,6 @@ static int ms_event(struct hid_device *hdev, struct hid_field *field,
+@@ -316,111 +253,6 @@ static int ms_event(struct hid_device *hdev, struct hid_field *field,
  	return 0;
  }
  
 -static void ms_ff_worker(struct work_struct *work)
 -{
--	struct ms_data *ms = container_of(work, struct ms_data, ff_worker);
+-	struct ms_data *ms = container_of(to_delayed_work(work),
+-					  struct ms_data, ff_worker);
 -	struct hid_device *hdev = ms->hdev;
 -	struct xb1s_ff_report *r = ms->output_report_dmabuf;
 -	int ret;
+-
+-	WRITE_ONCE(ms->ff_next,
+-		   jiffies + msecs_to_jiffies(XB1S_FF_MIN_INTERVAL_MS));
 -
 -	memset(r, 0, sizeof(*r));
 -
@@ -220,8 +227,8 @@ index 146ebbc31..6fce5b3d3 100644
 -	 */
 -	r->duration_10ms = U8_MAX;
 -	r->loop_count = U8_MAX;
--	r->magnitude[MAGNITUDE_STRONG] = ms->strong; /* left actuator */
--	r->magnitude[MAGNITUDE_WEAK] = ms->weak;     /* right actuator */
+-	r->magnitude[MAGNITUDE_STRONG] = READ_ONCE(ms->strong); /* left actuator */
+-	r->magnitude[MAGNITUDE_WEAK] = READ_ONCE(ms->weak);     /* right actuator */
 -
 -	ret = hid_hw_output_report(hdev, (__u8 *)r, sizeof(*r));
 -	if (ret < 0)
@@ -233,6 +240,7 @@ index 146ebbc31..6fce5b3d3 100644
 -{
 -	struct hid_device *hid = input_get_drvdata(dev);
 -	struct ms_data *ms = hid_get_drvdata(hid);
+-	unsigned long next, delay = 0;
 -
 -	if (effect->type != FF_RUMBLE)
 -		return 0;
@@ -240,10 +248,25 @@ index 146ebbc31..6fce5b3d3 100644
 -	/*
 -	 * Magnitude is 0..100 so scale the 16-bit input here
 -	 */
--	ms->strong = ((u32) effect->u.rumble.strong_magnitude * 100) / U16_MAX;
--	ms->weak = ((u32) effect->u.rumble.weak_magnitude * 100) / U16_MAX;
+-	WRITE_ONCE(ms->strong,
+-		   ((u32)effect->u.rumble.strong_magnitude * 100) / U16_MAX);
+-	WRITE_ONCE(ms->weak,
+-		   ((u32)effect->u.rumble.weak_magnitude * 100) / U16_MAX);
 -
--	schedule_work(&ms->ff_worker);
+-	/*
+-	 * Games can update rumble every frame, and ff-memless adds its own
+-	 * envelope updates on top, each of which used to become a Bluetooth
+-	 * output report. Send at most one report per
+-	 * XB1S_FF_MIN_INTERVAL_MS instead. If a report is already queued,
+-	 * this does nothing and that report picks up the values just
+-	 * stored, so the latest magnitudes always win and the final
+-	 * "stop" is never lost.
+-	 */
+-	next = READ_ONCE(ms->ff_next);
+-	if (time_before(jiffies, next))
+-		delay = min(next - jiffies,
+-			    msecs_to_jiffies(XB1S_FF_MIN_INTERVAL_MS));
+-	schedule_delayed_work(&ms->ff_worker, delay);
 -	return 0;
 -}
 -
@@ -290,16 +313,17 @@ index 146ebbc31..6fce5b3d3 100644
  static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
  {
  	unsigned long quirks = id->driver_data;
-@@ -409,8 +264,6 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
+@@ -432,9 +264,6 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
  		return -ENOMEM;
  
  	ms->quirks = quirks;
 -	ms->hdev = hdev;
--	INIT_WORK(&ms->ff_worker, ms_ff_worker);
+-	INIT_DELAYED_WORK(&ms->ff_worker, ms_ff_worker);
+-	ms->ff_next = jiffies;
  
  	hid_set_drvdata(hdev, ms);
  
-@@ -426,11 +279,6 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
+@@ -450,11 +279,6 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
  		return ret;
  	}
  
@@ -311,7 +335,7 @@ index 146ebbc31..6fce5b3d3 100644
  	ret = hid_hw_start(hdev, HID_CONNECT_DEFAULT | ((quirks & MS_HIDINPUT) ?
  				HID_CONNECT_HIDINPUT_FORCE : 0));
  	if (ret) {
-@@ -443,17 +291,7 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
+@@ -467,17 +291,7 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
  
  static void ms_remove(struct hid_device *hdev)
  {
@@ -325,11 +349,11 @@ index 146ebbc31..6fce5b3d3 100644
 -	 * this point. Flush anything still pending before devres frees
 -	 * ms and the output report buffer.
 -	 */
--	cancel_work_sync(&ms->ff_worker);
+-	cancel_delayed_work_sync(&ms->ff_worker);
  }
  
  static const struct hid_device_id ms_devices[] = {
-@@ -492,19 +330,6 @@ static const struct hid_device_id ms_devices[] = {
+@@ -516,19 +330,6 @@ static const struct hid_device_id ms_devices[] = {
  		.driver_data = MS_PRESENTER },
  	{ HID_BLUETOOTH_DEVICE(USB_VENDOR_ID_MICROSOFT, 0x091B),
  		.driver_data = MS_SURFACE_DIAL },
@@ -349,7 +373,7 @@ index 146ebbc31..6fce5b3d3 100644
  	{ }
  };
  MODULE_DEVICE_TABLE(hid, ms_devices);
-@@ -515,7 +340,6 @@ static struct hid_driver ms_driver = {
+@@ -539,7 +340,6 @@ static struct hid_driver ms_driver = {
  	.report_fixup = ms_report_fixup,
  	.input_mapping = ms_input_mapping,
  	.input_mapped = ms_input_mapped,
@@ -359,10 +383,10 @@ index 146ebbc31..6fce5b3d3 100644
  	.remove = ms_remove,
 diff --git a/drivers/hid/hid-xbox.c b/drivers/hid/hid-xbox.c
 new file mode 100644
-index 000000000..3d8d1a735
+index 000000000..1bbf79f55
 --- /dev/null
 +++ b/drivers/hid/hid-xbox.c
-@@ -0,0 +1,251 @@
+@@ -0,0 +1,270 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
 + * HID driver for Xbox Wireless Controllers connected over Bluetooth
@@ -389,6 +413,8 @@ index 000000000..3d8d1a735
 +#include "hid-ids.h"
 +
 +#define XBOX_FF_REPORT		3
++/* Minimum time between two rumble output reports. */
++#define XBOX_FF_MIN_INTERVAL_MS	10
 +#define XBOX_FF_ENABLE_WEAK	BIT(0)
 +#define XBOX_FF_ENABLE_STRONG	BIT(1)
 +
@@ -425,7 +451,8 @@ index 000000000..3d8d1a735
 +struct xbox_device {
 +	struct hid_device *hdev;
 +	unsigned long quirks;
-+	struct work_struct ff_worker;
++	struct delayed_work ff_worker;
++	unsigned long ff_next;	/* jiffies: earliest time for the next report */
 +	u8 strong;
 +	u8 weak;
 +	struct xbox_ff_report *ff_report;
@@ -481,10 +508,13 @@ index 000000000..3d8d1a735
 +
 +static void xbox_ff_worker(struct work_struct *work)
 +{
-+	struct xbox_device *xdev = container_of(work, struct xbox_device,
-+						ff_worker);
++	struct xbox_device *xdev = container_of(to_delayed_work(work),
++						struct xbox_device, ff_worker);
 +	struct xbox_ff_report *r = xdev->ff_report;
 +	int ret;
++
++	WRITE_ONCE(xdev->ff_next,
++		   jiffies + msecs_to_jiffies(XBOX_FF_MIN_INTERVAL_MS));
 +
 +	memset(r, 0, sizeof(*r));
 +
@@ -496,8 +526,8 @@ index 000000000..3d8d1a735
 +	 */
 +	r->duration_10ms = U8_MAX;
 +	r->loop_count = U8_MAX;
-+	r->magnitude[XBOX_FF_MAGNITUDE_STRONG] = xdev->strong; /* left */
-+	r->magnitude[XBOX_FF_MAGNITUDE_WEAK] = xdev->weak;     /* right */
++	r->magnitude[XBOX_FF_MAGNITUDE_STRONG] = READ_ONCE(xdev->strong); /* left */
++	r->magnitude[XBOX_FF_MAGNITUDE_WEAK] = READ_ONCE(xdev->weak);     /* right */
 +
 +	ret = hid_hw_output_report(xdev->hdev, (u8 *)r, sizeof(*r));
 +	if (ret < 0)
@@ -509,15 +539,27 @@ index 000000000..3d8d1a735
 +{
 +	struct hid_device *hdev = input_get_drvdata(dev);
 +	struct xbox_device *xdev = hid_get_drvdata(hdev);
++	unsigned long next, delay = 0;
 +
 +	if (effect->type != FF_RUMBLE)
 +		return 0;
 +
 +	/* The controller takes 0..100, so scale the 16-bit magnitudes. */
-+	xdev->strong = ((u32)effect->u.rumble.strong_magnitude * 100) / U16_MAX;
-+	xdev->weak = ((u32)effect->u.rumble.weak_magnitude * 100) / U16_MAX;
++	WRITE_ONCE(xdev->strong,
++		   ((u32)effect->u.rumble.strong_magnitude * 100) / U16_MAX);
++	WRITE_ONCE(xdev->weak,
++		   ((u32)effect->u.rumble.weak_magnitude * 100) / U16_MAX);
 +
-+	schedule_work(&xdev->ff_worker);
++	/*
++	 * Send at most one report per XBOX_FF_MIN_INTERVAL_MS. If a report
++	 * is already queued this does nothing, and that report picks up the
++	 * values just stored, so the latest magnitudes always win.
++	 */
++	next = READ_ONCE(xdev->ff_next);
++	if (time_before(jiffies, next))
++		delay = min(next - jiffies,
++			    msecs_to_jiffies(XBOX_FF_MIN_INTERVAL_MS));
++	schedule_delayed_work(&xdev->ff_worker, delay);
 +	return 0;
 +}
 +
@@ -550,7 +592,8 @@ index 000000000..3d8d1a735
 +		return -ENOMEM;
 +
 +	xdev->hdev = hdev;
-+	INIT_WORK(&xdev->ff_worker, xbox_ff_worker);
++	INIT_DELAYED_WORK(&xdev->ff_worker, xbox_ff_worker);
++	xdev->ff_next = jiffies;
 +	hid_set_drvdata(hdev, xdev);
 +
 +	ret = hid_parse(hdev);
@@ -582,7 +625,7 @@ index 000000000..3d8d1a735
 +	 * ff-memless timer, so no new rumble work can be queued past this
 +	 * point. Flush anything still pending before devres frees xdev.
 +	 */
-+	cancel_work_sync(&xdev->ff_worker);
++	cancel_delayed_work_sync(&xdev->ff_worker);
 +}
 +
 +static const struct hid_device_id xbox_devices[] = {

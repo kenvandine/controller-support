@@ -1,0 +1,133 @@
+From 3cb9ea866fe62adcc9acd01fde36a22ac030fa12 Mon Sep 17 00:00:00 2001
+From: Ken <kvandine@gmail.com>
+Date: Fri, 20 Nov 2026 19:04:27 +0000
+Subject: [PATCH 4/6] HID: microsoft: rate-limit Xbox controller rumble reports
+
+Every FF_RUMBLE update on the Xbox Wireless Controllers queues the rumble
+work, and each run sends one output report over Bluetooth. Games often
+update rumble every frame, and ff-memless adds its own envelope updates
+on top, so a single game can push well over a hundred output reports a
+second at the controller, each one queued behind the previous on the
+Bluetooth link.
+
+Turn the rumble work into delayed work and send at most one report every
+10 ms. An update that arrives while a report is already queued only
+stores the new magnitudes; the queued report reads them when it runs, so
+the newest values always go out and the final "stop" is never dropped.
+An update after a quiet period is sent immediately, as before.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01N6AAHtchJS5gBMxR7F1sf8
+---
+ drivers/hid/hid-microsoft.c | 42 +++++++++++++++++++++++++++++--------
+ 1 file changed, 33 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/hid/hid-microsoft.c b/drivers/hid/hid-microsoft.c
+index 146ebbc31..52e43209e 100644
+--- a/drivers/hid/hid-microsoft.c
++++ b/drivers/hid/hid-microsoft.c
+@@ -32,13 +32,16 @@
+ struct ms_data {
+ 	unsigned long quirks;
+ 	struct hid_device *hdev;
+-	struct work_struct ff_worker;
++	struct delayed_work ff_worker;
++	unsigned long ff_next;	/* jiffies: earliest time for the next report */
+ 	__u8 strong;
+ 	__u8 weak;
+ 	void *output_report_dmabuf;
+ };
+ 
+ #define XB1S_FF_REPORT		3
++/* Minimum time between two rumble output reports. */
++#define XB1S_FF_MIN_INTERVAL_MS	10
+ #define ENABLE_WEAK		BIT(0)
+ #define ENABLE_STRONG		BIT(1)
+ 
+@@ -315,11 +318,15 @@ static int ms_event(struct hid_device *hdev, struct hid_field *field,
+ 
+ static void ms_ff_worker(struct work_struct *work)
+ {
+-	struct ms_data *ms = container_of(work, struct ms_data, ff_worker);
++	struct ms_data *ms = container_of(to_delayed_work(work),
++					  struct ms_data, ff_worker);
+ 	struct hid_device *hdev = ms->hdev;
+ 	struct xb1s_ff_report *r = ms->output_report_dmabuf;
+ 	int ret;
+ 
++	WRITE_ONCE(ms->ff_next,
++		   jiffies + msecs_to_jiffies(XB1S_FF_MIN_INTERVAL_MS));
++
+ 	memset(r, 0, sizeof(*r));
+ 
+ 	r->report_id = XB1S_FF_REPORT;
+@@ -331,8 +338,8 @@ static void ms_ff_worker(struct work_struct *work)
+ 	 */
+ 	r->duration_10ms = U8_MAX;
+ 	r->loop_count = U8_MAX;
+-	r->magnitude[MAGNITUDE_STRONG] = ms->strong; /* left actuator */
+-	r->magnitude[MAGNITUDE_WEAK] = ms->weak;     /* right actuator */
++	r->magnitude[MAGNITUDE_STRONG] = READ_ONCE(ms->strong); /* left actuator */
++	r->magnitude[MAGNITUDE_WEAK] = READ_ONCE(ms->weak);     /* right actuator */
+ 
+ 	ret = hid_hw_output_report(hdev, (__u8 *)r, sizeof(*r));
+ 	if (ret < 0)
+@@ -344,6 +351,7 @@ static int ms_play_effect(struct input_dev *dev, void *data,
+ {
+ 	struct hid_device *hid = input_get_drvdata(dev);
+ 	struct ms_data *ms = hid_get_drvdata(hid);
++	unsigned long next, delay = 0;
+ 
+ 	if (effect->type != FF_RUMBLE)
+ 		return 0;
+@@ -351,10 +359,25 @@ static int ms_play_effect(struct input_dev *dev, void *data,
+ 	/*
+ 	 * Magnitude is 0..100 so scale the 16-bit input here
+ 	 */
+-	ms->strong = ((u32) effect->u.rumble.strong_magnitude * 100) / U16_MAX;
+-	ms->weak = ((u32) effect->u.rumble.weak_magnitude * 100) / U16_MAX;
++	WRITE_ONCE(ms->strong,
++		   ((u32)effect->u.rumble.strong_magnitude * 100) / U16_MAX);
++	WRITE_ONCE(ms->weak,
++		   ((u32)effect->u.rumble.weak_magnitude * 100) / U16_MAX);
+ 
+-	schedule_work(&ms->ff_worker);
++	/*
++	 * Games can update rumble every frame, and ff-memless adds its own
++	 * envelope updates on top, each of which used to become a Bluetooth
++	 * output report. Send at most one report per
++	 * XB1S_FF_MIN_INTERVAL_MS instead. If a report is already queued,
++	 * this does nothing and that report picks up the values just
++	 * stored, so the latest magnitudes always win and the final
++	 * "stop" is never lost.
++	 */
++	next = READ_ONCE(ms->ff_next);
++	if (time_before(jiffies, next))
++		delay = min(next - jiffies,
++			    msecs_to_jiffies(XB1S_FF_MIN_INTERVAL_MS));
++	schedule_delayed_work(&ms->ff_worker, delay);
+ 	return 0;
+ }
+ 
+@@ -410,7 +433,8 @@ static int ms_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 
+ 	ms->quirks = quirks;
+ 	ms->hdev = hdev;
+-	INIT_WORK(&ms->ff_worker, ms_ff_worker);
++	INIT_DELAYED_WORK(&ms->ff_worker, ms_ff_worker);
++	ms->ff_next = jiffies;
+ 
+ 	hid_set_drvdata(hdev, ms);
+ 
+@@ -453,7 +477,7 @@ static void ms_remove(struct hid_device *hdev)
+ 	 * this point. Flush anything still pending before devres frees
+ 	 * ms and the output report buffer.
+ 	 */
+-	cancel_work_sync(&ms->ff_worker);
++	cancel_delayed_work_sync(&ms->ff_worker);
+ }
+ 
+ static const struct hid_device_id ms_devices[] = {
+-- 
+2.43.0
+
