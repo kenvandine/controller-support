@@ -1,4 +1,4 @@
-From 3cb9ea866fe62adcc9acd01fde36a22ac030fa12 Mon Sep 17 00:00:00 2001
+From 34e918b83d044b8dc1bee1b037b037b8a8a9123f Mon Sep 17 00:00:00 2001
 From: Ken <kvandine@gmail.com>
 Date: Fri, 20 Nov 2026 19:04:27 +0000
 Subject: [PATCH 4/6] HID: microsoft: rate-limit Xbox controller rumble reports
@@ -16,14 +16,19 @@ stores the new magnitudes; the queued report reads them when it runs, so
 the newest values always go out and the final "stop" is never dropped.
 An update after a quiet period is sent immediately, as before.
 
+A report that is pending when the controller disconnects fails to send
+before the device is removed. Rate-limit the warning and include the
+error code, so a disconnect in the middle of rumble does not flood the
+log.
+
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01N6AAHtchJS5gBMxR7F1sf8
 ---
- drivers/hid/hid-microsoft.c | 42 +++++++++++++++++++++++++++++--------
- 1 file changed, 33 insertions(+), 9 deletions(-)
+ drivers/hid/hid-microsoft.c | 44 ++++++++++++++++++++++++++++---------
+ 1 file changed, 34 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/hid/hid-microsoft.c b/drivers/hid/hid-microsoft.c
-index 146ebbc31..52e43209e 100644
+index 146ebbc31..b061bdd55 100644
 --- a/drivers/hid/hid-microsoft.c
 +++ b/drivers/hid/hid-microsoft.c
 @@ -32,13 +32,16 @@
@@ -61,7 +66,7 @@ index 146ebbc31..52e43209e 100644
  	memset(r, 0, sizeof(*r));
  
  	r->report_id = XB1S_FF_REPORT;
-@@ -331,8 +338,8 @@ static void ms_ff_worker(struct work_struct *work)
+@@ -331,12 +338,12 @@ static void ms_ff_worker(struct work_struct *work)
  	 */
  	r->duration_10ms = U8_MAX;
  	r->loop_count = U8_MAX;
@@ -72,6 +77,11 @@ index 146ebbc31..52e43209e 100644
  
  	ret = hid_hw_output_report(hdev, (__u8 *)r, sizeof(*r));
  	if (ret < 0)
+-		hid_warn(hdev, "failed to send FF report\n");
++		hid_warn_ratelimited(hdev, "failed to send FF report: %d\n", ret);
+ }
+ 
+ static int ms_play_effect(struct input_dev *dev, void *data,
 @@ -344,6 +351,7 @@ static int ms_play_effect(struct input_dev *dev, void *data,
  {
  	struct hid_device *hid = input_get_drvdata(dev);

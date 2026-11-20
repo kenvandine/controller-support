@@ -1,4 +1,4 @@
-From 2783b3539c0218d84035ec18bf33454f5f061beb Mon Sep 17 00:00:00 2001
+From f4cbbccbccc19157b9f9f37f5a87249f361120d9 Mon Sep 17 00:00:00 2001
 From: Ken <kvandine@gmail.com>
 Date: Fri, 20 Nov 2026 16:13:20 +0000
 Subject: [PATCH 5/6] HID: xbox: split Xbox Wireless Controller support out of
@@ -109,7 +109,7 @@ index 48a863b24..53db435c1 100644
  obj-$(CONFIG_HID_XINMO)		+= hid-xinmo.o
  obj-$(CONFIG_HID_ZEROPLUS)	+= hid-zpff.o
 diff --git a/drivers/hid/hid-microsoft.c b/drivers/hid/hid-microsoft.c
-index 52e43209e..6fce5b3d3 100644
+index b061bdd55..6fce5b3d3 100644
 --- a/drivers/hid/hid-microsoft.c
 +++ b/drivers/hid/hid-microsoft.c
 @@ -26,40 +26,11 @@
@@ -232,7 +232,7 @@ index 52e43209e..6fce5b3d3 100644
 -
 -	ret = hid_hw_output_report(hdev, (__u8 *)r, sizeof(*r));
 -	if (ret < 0)
--		hid_warn(hdev, "failed to send FF report\n");
+-		hid_warn_ratelimited(hdev, "failed to send FF report: %d\n", ret);
 -}
 -
 -static int ms_play_effect(struct input_dev *dev, void *data,
@@ -383,7 +383,7 @@ index 52e43209e..6fce5b3d3 100644
  	.remove = ms_remove,
 diff --git a/drivers/hid/hid-xbox.c b/drivers/hid/hid-xbox.c
 new file mode 100644
-index 000000000..1bbf79f55
+index 000000000..cb5ecef39
 --- /dev/null
 +++ b/drivers/hid/hid-xbox.c
 @@ -0,0 +1,270 @@
@@ -531,7 +531,7 @@ index 000000000..1bbf79f55
 +
 +	ret = hid_hw_output_report(xdev->hdev, (u8 *)r, sizeof(*r));
 +	if (ret < 0)
-+		hid_warn(xdev->hdev, "failed to send FF report\n");
++		hid_warn_ratelimited(xdev->hdev, "failed to send FF report: %d\n", ret);
 +}
 +
 +static int xbox_play_effect(struct input_dev *dev, void *data,
