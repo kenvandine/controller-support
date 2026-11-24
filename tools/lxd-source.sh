@@ -8,6 +8,9 @@
 #   CONTAINER  container name             (default: hidxbox-build)
 #   RELEASE    Ubuntu release image       (default: 26.10)
 #   KVER       Ubuntu linux source version (default: 7.3.0-11.12)
+#   UPLOAD     upload number after the ABI (default: the archive's, e.g. 12
+#              for 7.3.0-11.12). Raise it to make the PPA package sort above
+#              a stock respin, e.g. UPLOAD=13 gives 7.3.0-9011.13+hidxbox<N>
 #   KEY        GPG key id to sign with    (default: unset = leave unsigned)
 #   OUT        where the source package lands on the host
 #              (default: <repo>/out/source/<version>)
@@ -31,6 +34,7 @@ name=${CONTAINER:-hidxbox-build}
 release=${RELEASE:-26.10}
 kver=${KVER:-7.3.0-11.12}
 key=${KEY:-}
+upload_override=${UPLOAD:-}
 gname=$(git -C "$repo" config user.name || echo "hid-xbox builder")
 gmail=$(git -C "$repo" config user.email || echo "builder@localhost")
 
@@ -73,6 +77,7 @@ in_ct sh -c "cd /srcpkg/src/linux-* &&
 	ver=\$(dpkg-parsechangelog -l debian.master/changelog -S Version) &&
 	upstream=\${ver%-*} && rev=\${ver##*-} &&
 	abi=\${rev%%.*} && upload=\${rev#*.} &&
+	upload=${upload_override:-\$upload} &&
 	newver=\$upstream-90\$abi.\$upload+hidxbox$n &&
 	series=\$(dpkg-parsechangelog -l debian.master/changelog -S Distribution) &&
 	{

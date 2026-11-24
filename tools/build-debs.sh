@@ -34,7 +34,7 @@ ver=$(dpkg-parsechangelog -l debian.master/changelog -S Version)  # 7.3.0-11.12
 upstream=${ver%-*}                                                  # 7.3.0
 rev=${ver##*-}                                                      # 11.12
 abi=${rev%%.*}                                                      # 11
-upload=${rev#*.}                                                    # 12
+upload=${UPLOAD:-${rev#*.}}                                         # 12, or $UPLOAD
 newver="$upstream-90$abi.$upload+hidxbox$n"
 series=$(dpkg-parsechangelog -l debian.master/changelog -S Distribution)
 
